@@ -1,0 +1,31 @@
+/*公共*/
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0;}
+body{font-family:Arial, Helvetica, sans-serif;font-size:12px;background:#faebd7;-webkit-text-size-adjust:100%;}
+a{color:#2f2929;text-decoration:none;}
+a:hover{color:#c30d23;text-decoration:underline;}
+em{font-style:normal}li{list-style:none;}
+img{border:0;vertical-align:bottom;display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+
+
+.picbox{ width:1000px;margin:50px auto;font-family: "\5FAE\8F6F\96C5\9ED1","\5B8B\4F53",serif;}
+.picbox h2{font-size:22px;line-height:36px;color:#d13a3e;text-align:center;}
+.picbox .text{font-size:16px;line-height:30px;color:#2a2d39;padding:10px 0 20px 0;text-align:center;}
+.piclist{margin-left:1px}
+.piclist:after{height:0;display:block;clear:both;visibility:hidden;content:'.';font-size:0}
+.piclist ul{ width:1000px;margin:0 auto;position:relative;}
+.piclist li{ float:left;text-align:center;cursor:pointer;z-index:0;position:relative;margin:0 10px 10px 0;width:240px;height:200px;margin-bottom:10px;box-shadow:0px 1px 0px #edecec;border: 1px solid #e5e5e5;}
+.piclist li.r{ margin-right:0}
+.piclist li .in img{*width:240px;*height:auto;}
+.piclist li .in{ position: absolute;left: 0;top: 0;z-index:2;width: 240px;}
+.piclist li .in .imgdiv{display:block;width:230px;height: 142px;margin:0 auto;margin-top:4px;overflow:hidden;}
+.piclist li span{ display:block;text-align: center;height:46px;padding:8px 3px 0 3px;font-size:14px;line-height:20px;color:#666;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.piclist li span b{display:block;color:#d13a3e}
+.piclist li.pic .original{display:none;padding:5px;padding-bottom:0;border: 1px solid #d13a3e;position:absolute;text-align: center;left:-16px; top:-59px; background: #fff;}
+.piclist li.pic .original .imga{display:block;}
+.piclist li .original img{*height:250px;*width:auto;}
+.piclist li .original span {height:36px;padding-top:0}
+.piclist li .original b{ line-height:36px;}
+.piclist li.on{z-index:999}
+.piclist li.on .original{ display:block;z-index:100;}
+

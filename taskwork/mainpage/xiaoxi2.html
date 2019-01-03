@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            cursor: pointer;
+        }
+        .xiaoxi_boy{
+            width: 85%;
+            height: 100px;
+            margin: 0 auto;
+            background-color: rgba(209, 167, 210, 0.25);
+            margin-bottom: 10px;
+        }
+        .xiaoxi_parent{
+            padding: 0 0 20px 0;
+        }
+        .xiaoxi_head{
+            height: 70px;
+            width: 85%;
+            background-color: rgba(209, 167, 210, 0.25);
+            margin: 0 auto;
+            margin-top: 20px;
+            border-radius: 40px 40px 0 0;
+            margin-bottom: 5px;
+            /*padding-top: 16px;*/
+        }
+        .weiduxiaoxi{
+            /*vertical-align: center;*/
+            border-radius: 40px 40px 0 0;
+            position:relative;
+            height: 55px;
+            float: left;
+            width: 30%;
+            /*background-color: rgba(209, 167, 210, 0.25);*/
+            margin-bottom: 0;
+            margin-right: 2px;
+            margin-top: 16px;
+        }
+        .weiduxiaoxi:hover{
+            background-color: rgba(209,167,210,0.5);
+        }
+        .weiduxiaoxitishi{
+            /*vertical-align: center;*/
+            width: 100%;
+            line-height: 70px;
+            text-align:center;
+            position:absolute;
+            bottom:0;
+            padding:0;
+            margin:0;
+        }
+        .gerenzhanshi{
+            position:relative;
+            height: 100%;
+            float: right;
+            width: 30%;
+            background-color: rgba(209, 167, 210, 0.25);
+            margin-bottom: 0;
+            margin-right: 2px;
+        }
+        .touxiang{
+            float: right;
+            margin-right: 10px;
+            margin-top: 10px;
+            height: 50px;
+            width: 50px;
+            border-radius: 90px;
+            overflow: hidden;
+        }
+        .yonghuming{
+            float: right;
+            margin-right: 10px;
+            margin-top: 25px;
+            /*background-color: #876b2e;*/
+        }
+        .xiaoxi_left{
+            float: left;
+            background-color: #e3cdb5;
+            width: 20%;
+            height: 100%;
+
+        }
+        .xiaoxi_main{
+            float: left;
+            /*background-color: #e3cdd0;*/
+            width: 65%;
+            height: 100%;
+        }
+        .xiaoxi_right{
+            float: left;
+            background-color: #e3cdc0;
+            width: 15%;
+            height: 100%;
+            text-align: center;
+            line-height: 100px;
+        }
+        .touxiang_guest{
+            float: left;
+            margin-left: 10px;
+            margin-top: 15px;
+            height: 70px;
+            width: 70px;
+            border-radius: 90px;
+            overflow: hidden;
+        }
+        .name{
+            /*background-color: #a9c382;*/
+            width: 40%;
+            height: 100%;
+            float: left;
+            margin-left: 10px;
+            text-align: center;
+
+        }
+        .name_txt{
+            line-height: 100px;
+        }
+        .xiaoxi_main_head{
+            width: 100%;
+            height: 35px;
+            /*background-color: blueviolet;*/
+        }
+        .xiaoxi_main_main{
+            width: 100%;
+            height:63px;
+            /*background-color: #fdfbf0;*/
+            margin-top: 0;
+        }
+        .xiaoxi_fenjie{
+            width: 60%;
+            height: 2px;
+            background-color: #cccccc;
+            margin-left: 10%;
+        }
+        .xiaoxi_right:hover{
+            background-color: #e2c4b2;
+        }
+        .xiaoxifasong:hover
+        {
+            background-color: black;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        window.onload = function () {
+            // document.getElementById("xiaoxitiaoshu").innerText="10";
+        }
+        // document.getElementById("xiaoxifasong").onmouseover = function(){
+        //     document.getElementById("xiaoxifasong").style.backgroundColor="red" ;
+        //     console.log("mmm");
+        // }
+        // document.getElementById("xiaoxifasong").onmouseout = function(){
+        //     document.getElementById("xiaoxifasong").style.backgroundColor="#e49d66" ;
+        //     console.log("yyy");
+        // }
+        function colormove(t){
+            t.style.backgroundColor="#b9946e" ;
+        }
+        function colorleave(t){
+            t.style.backgroundColor="#e49d66" ;
+        }
+        function returnback(i) {
+            var choose1 = i.parentElement;
+            var choose2 = choose1.parentElement;
+            var choose3 = choose2.parentElement;
+            var choose4 = choose3.parentElement;
+            choose2.parentNode.removeChild(choose2);
+            //choose2.style.display="none";
+            choose4.style.height="100px";
+            choose4.getElementsByClassName("xiaoxi_right")[0].style.display="block";
+            var oobj = parent.document.getElementById("xiaoxi_parent"); //取得父页面IFrame对象
+            // alert(obj.style.height); //弹出父页面中IFrame中设置的高度
+            oobj.style.height = this.document.body.scrollHeight+60+'px'; //调整父页面中IFrame的高度为此页面的高度
+            parent.shuaxin();
+            //         $(choose_button).append("<div style='width: 100px;height: 111px'>aa</div>")
+
+            //
+            // alert(i)
+        }
+        function huifu(i)
+        {
+            //     alert("z");
+            var choose = document.getElementsByClassName("xiaoxi_boy");
+            var choose_main=choose[i-1];
+            choose_main.style.height="150px";
+            choose_main.getElementsByClassName("xiaoxi_right")[0].style.display="none";
+            var choose_right=choose_main.getElementsByClassName("xiaoxi_main")[0];
+            var choose_button=choose_main.getElementsByClassName("xiaoxi_right")[0];
+            $(choose_right).append("" +
+                "<div style='width: 650px;height: 50px;float: left'>" +
+                "<div style='width: 98%;\n" +
+                "    height: 30px;\n" +
+                "    /* margin: 0 auto; */\n" +
+                "    margin-top: 10px;\n" +
+                "    margin-left: 5px;'>" +
+                "<input type='text' style='float:left;width: 80%;height: 30px;border-style: hidden'/>" +
+                "<div id='xiaoxifasong' style='float: right;height: 30px;width:100px;background-color: #e49d66;text-align: center' " +
+                "onmousemove='colormove(this)' onmouseleave='colorleave(this)' onclick='returnback(this)'>发送</div>"+
+                "</div>"
+                +"</div>"
+            );
+            var oobj = parent.document.getElementById("xiaoxi_parent"); //取得父页面IFrame对象
+            // alert(obj.style.height); //弹出父页面中IFrame中设置的高度
+            oobj.style.height = this.document.body.scrollHeight+60+'px'; //调整父页面中IFrame的高度为此页面的高度
+            parent.shuaxin();
+            //    $(choose_button).append("<div style='width: 100px;height: 111px'>aa</div>")
+
+            //
+            // alert(i)
+        }
+    </script>
+
+</head>
+<body>
+<div class="xiaoxi_boy">
+    <div class="xiaoxi_left">
+        <div class="touxiang_guest">   <img src="psbNM7BJS2U.jpg" height="70px"></div>
+        <div class="name"><span class="name_txt">濑名泉</span></div>
+    </div>
+    <div class="xiaoxi_main">
+        <div class="xiaoxi_main_head" style="line-height: 35px">
+            <div class="date" style="float: left;margin-left: 20px">2018/8/23</div>
+            <div class="time" style="float: left;margin-left: 100px;">11:00</div>
+
+        </div>
+        <div class="xiaoxi_fenjie"></div>
+        <div class="xiaoxi_main_main">
+            <div style="width: 95%;height: 90%;margin:0 auto ;">
+                又跑到哪里睡觉去啦！快来训练啊
+            </div>
+        </div>
+    </div>
+
+    <div class="xiaoxi_right">
+        <div onclick="huifu(1)"><a class="huifu"><txt>回复</txt></a></div>
+    </div>
+</div>
+<div class="xiaoxi_boy">
+    <div class="xiaoxi_left">
+        <div class="touxiang_guest">   <img src="psbNM7BJS2U.jpg" height="70px"></div>
+        <div class="name"><span class="name_txt">衣间真绪</span></div>
+    </div>
+    <div class="xiaoxi_main">
+        <div class="xiaoxi_main_head" style="line-height: 35px">
+            <div class="date" style="float: left;margin-left: 20px">2018/8/23</div>
+            <div class="time" style="float: left;margin-left: 100px;">11:00</div>
+
+        </div>
+        <div class="xiaoxi_fenjie"></div>
+        <div class="xiaoxi_main_main">
+            <div style="width: 95%;height: 90%;margin:0 auto ;">
+                栗子~~~~~你在哪~~~要去吃午饭咯
+            </div>
+        </div>
+    </div>
+
+    <div class="xiaoxi_right">
+        <div onclick="huifu(2)"><a class="huifu"><txt>回复</txt></a></div>
+    </div>
+</div>
+<div class="xiaoxi_boy">
+    <div class="xiaoxi_left">
+        <div class="touxiang_guest">   <img src="psbNM7BJS2U.jpg" height="70px"></div>
+        <div class="name"><span class="name_txt">衣间真绪</span></div>
+    </div>
+    <div class="xiaoxi_main">
+        <div class="xiaoxi_main_head" style="line-height: 35px">
+            <div class="date" style="float: left;margin-left: 20px">2018/8/23</div>
+            <div class="time" style="float: left;margin-left: 100px;">11:00</div>
+
+        </div>
+        <div class="xiaoxi_fenjie"></div>
+        <div class="xiaoxi_main_main">
+            <div style="width: 95%;height: 90%;margin:0 auto ;">
+                栗子~~~~~你在哪~~~要去吃午饭咯
+            </div>
+        </div>
+    </div>
+
+
+    <div class="xiaoxi_right">
+        <div onclick="huifu(3)"><a class="huifu"><txt>回复</txt></a></div>
+    </div>
+
+</div>
+
+</body>
+</html>

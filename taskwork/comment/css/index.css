@@ -1,0 +1,242 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: antiquewhite;
+}
+@font-face {/*申明字体*/
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?dud2mv');
+    src:  url('../fonts/icomoon.eot?dud2mv#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?dud2mv') format('truetype'),
+    url('../fonts/icomoon.woff?dud2mv') format('woff'),
+    url('../fonts/icomoon.svg?dud2mv#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*中间分类模块开始*/
+.grid{
+    margin-top: 20px;
+    height: 1400px;
+    width: 1040px;
+}
+.ggl{
+    height: 30px;
+    width: 240px;
+}
+.grid-col1{
+    width: 240px;
+    height: 560px;
+    background-color: #6e6568;
+    color: #fff;
+    font-size: 14px;  /*不是给字的是给/的*/
+    border-radius: 5px;
+}
+.grid-col1 a{
+    color: #fff;
+    font-size: 14px;/*给链接文字*/
+    margin: 0 3px;
+}
+.grid-col1 a:hover{
+    color: #f10215;
+}
+
+.grid-col1 ul li{
+    padding-left: 12px;
+    height: 29px;
+    line-height: 26px;
+    /*margin-left: 12px;的效果与padding-left: 12px;的区别*/
+}
+.grid-col1 ul li:hover{
+    background-color: #9c9698;
+}
+.grid-col2{
+    width: 570px;
+    height: 960px;
+    background-color:  antiquewhite;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+.share{
+    background-color: white;
+    padding: 20px;
+    width:530px;
+    height: 200px;
+    border-radius: 5px;
+}
+.share .share-block{
+    margin: 0 auto;
+    width:500px;
+    height: 160px;
+    background-color: #e5e9ef;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+.share .share-block:hover{
+    border:1px solid #e1a587;
+    background-color: #fff;
+}
+.share .share-block input:hover{
+    background-color: #fff;
+}
+.share .share-block input{
+    background-color: #e5e9ef;
+    text-align: left;
+    width:500px;
+    height:20px;
+}
+.anniu{
+    margin-top: 3px;
+    width:490px;
+    margin-left: 10px;
+}
+.anniu i{
+    font-family: "icomoon";
+    font-style: normal;
+    color: white;
+}
+.div {
+    /*float: right;*/
+    display: inline-block;
+    padding: .3em .5em;
+    background-image: linear-gradient(antiquewhite,#f5c153 );
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: .3em;
+    box-shadow: 0 1px white inset;
+    text-align: center;
+    text-shadow: 0 1px 1px black;
+    color:white;
+    font-weight: bold;
+}
+.div:active{
+    box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
+    border-color: rgba(0,0,0,.2);
+    background: #ccc;
+}
+.div:last-child{
+    margin-left: 250px;
+}
+.title{
+    width:570px;
+    height: 60px;
+    background-color:#ffffff;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.title li a{
+    float: left;
+    font-size: 18px;
+    color: #a6a2aa;
+    display: block;
+    background-color: white;
+    margin-right: 30px;
+    margin-left: 20px;
+    line-height: 50px;
+}
+.title li a:hover{
+    border-bottom: 3px #5f2a00 solid;
+    color: #5f2a00;
+
+}
+.title li a:last-child{
+    margin-left: 25px;
+}
+.div-user{
+    background-color: white;
+    padding: 20px;
+    width:530px;
+    height: 200px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.div-user1{
+    width:60px;
+    height: 60px;
+    border-radius: 50%;
+    background:url("../images/icon1.png");
+    float: left;
+}
+.div-user11{
+    width:60px;
+    height: 60px;
+    border-radius: 50%;
+    background:url("../images/icon2.png");
+    float: left;
+}
+.div-user2{
+    width:450px;
+    height: 210px;
+    margin-left: 20px;
+    float: left;
+}
+.div-content{
+    width:143px;
+    height: 110px;
+    background-color: #8fe380;
+    margin-left: 5px;
+    float: left;
+    margin-top: 2px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.div-content1{
+    width:450px;
+    height: 110px;
+    border: 1px #ddd solid;
+    float: left;
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.div-content1 .div-content{
+    margin-top:0px;
+    margin-left: 0;
+    float: left;
+}
+.div-content1 .name1{
+    width: 600px;
+    height: 30px;
+}
+.grid-col3{
+    width: 210px;
+    height: 430px;
+    background-color:  antiquewhite;
+    border-radius: 5px;
+}
+.ddd{
+    width: 200px;
+    height:70px;
+    bottom: 10px;
+    left: 5px;
+    position: absolute;
+}
+.div31{
+    width: 210px;
+    height: 200px;
+    background:url("../images/yonghu.png");
+    border-radius: 5px;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+}
+.div31 p {
+    text-align: center;
+    color: #1c1f22;
+}
+.div32{
+    width: 190px;
+    height: 180px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.ppp{
+    background:url("../images/ppp.png");
+    border-radius: 5px;
+    height: 140px;
+    width: 190px;
+}

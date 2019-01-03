@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src='js/jquery.js'></script>
+    <script src="js/index.js"></script>
+    <title>login</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    ul{
+        list-style: none;
+    }
+    .clearfix:before{
+        display:table;
+        content:"";
+    }
+    .clearfix:after{
+        clear:both;
+    }
+    .clearfix{
+        *zoom:1;
+    }
+    /*去掉所有可能浮动*/
+    a{
+        color: #876b2e;
+        text-decoration: none;
+    }
+    input{
+        border:0;
+        box-sizing: border-box;
+        /*css3盒子模型border和padding都包含到width中去*/
+    }
+    .container{
+        width:960px;
+        margin:0 auto;
+    }
+    /*css初始化结束*/
+    header{
+        height:80px;
+        /*background-color: pink;*/
+        overflow:hidden;
+    }
+    nav{
+        width:100%;  /*宽度*/
+        height:80px;
+        background-color: #eadac1;
+        margin:0px auto;
+        position: fixed;
+
+    }
+    .logo{
+        float:left;
+    }
+    .navbar{
+        float:left;
+        height:80px;
+        line-height: 80px;/*这个行高给父亲，行高会继承*/
+        margin-left: 55px;
+    }
+    .navbar li{
+        float:left;  /*让首页。。。一行显示*/
+    }
+    .navbar li a{
+        padding: 0px 25px;/*上下0 左右8像素*/
+        display:block;
+        height:80px;
+        font-size:25px;
+    }
+    .navbar li a:hover{
+        background-color:  #ffffff;
+    }
+    /*搜索框开始部分*/
+    .search{
+        width:410px;
+        margin-top: 21px;
+        height:38px;
+        line-height:38px;
+        border:1px solid #876b2e;
+        float:right;
+    }
+    .search input[type=text]{
+        width:360px;
+        height:38px;
+        line-height:38px;
+        padding-left:20px;
+        float:right;
+    }
+    .search input[type=submit]{
+        width:50px;
+        height:38px;
+        float:right;
+        background: #876b2e url("images/search7.png")0 0  no-repeat;
+    }
+    /*搜索框结束部分*/
+    /*个人中心部分开始*/
+    .personal{
+        float:right;
+        height:80px;
+        line-height: 80px;
+        margin:0 15px 0 35px;
+        font-size: 16px;
+    }
+    .personal{
+        margin: 0 15px;
+    }
+    /*个人中心部分结束*/
+    img {
+        vertical-align: top;
+    }
+
+    #banner{
+        height: 540px;
+        background-color: #5f2a00;
+    }
+    #slider {
+        width: 960px;
+        height: 540px;
+        padding: 0px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    #top {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #top ul {
+        width: 5760px;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    #top ul li {
+        width: 960px;
+        height: 540px;
+        float: left;
+    }
+
+    #slider ol {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    #slider ol li {
+        width: 20px;
+        height: 20px;
+        background-color: #ccc;
+        display: inline-block;
+        margin-right: 3px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    #slider ol li.current {
+        background-color: #75c3e7;
+    }
+    .loggin{
+
+    }
+    .button{
+        width:100px;
+        background:#8d3f1b;
+        display:block;
+        margin:0 auto;
+        margin-top:1%;
+        padding:10px;
+        text-align:center;
+        text-decoration:none;
+        color:#fff;
+        cursor:pointer;
+        box-shadow: 0 2px 2px rgba(0,0,0,0.3) ;
+        transition:background .3s;
+        -webkit-transition:background .3s;
+    }
+
+    .button:hover{
+        background:#fbd391;
+        color:#8d3f1b;
+    }
+    .logblock{
+        padding:30px;
+        width:300px;
+        height: 300px;
+        margin:0px auto;
+        margin-top:10px;
+        background-color: whitesmoke;
+        border-radius: 5%;
+        box-shadow: 0 2px 2px rgba(0,0,0,0.2) ;
+
+    }
+    .logblock h1{
+        font-weight: normal;
+        font-size: 40px;
+        text-align: center;
+        font-family: 微软雅黑;
+        letter-spacing:5px;
+    }
+    .logblock p{
+        display:block;
+        height:40px;
+        width: 290px;
+        /*background-color: pink;*/
+        margin:2.5px;
+        font-size: 15px;
+        font-family: 微软雅黑;
+        font-weight: 400;
+        letter-spacing:1px;
+    }
+    .logblock input{
+        height:25px;
+        width: 200px;
+        margin-left: 0px;
+        margin-top: 0px;
+        border: 1px #ccc solid ;
+    }
+    .keeplogin{
+        height:25px;
+        width: 200px;
+        color:#777;
+        margin: 0 auto;
+        font-size: 13px;
+        line-height: 13px;
+    }
+    input#loginkeeping
+    {
+        width:15px;
+        height:15px
+    }
+    .loginbutton input{
+        width:150px;
+        margin:0 auto;
+        margin-left: 73px;
+        margin-top: 15px;
+        height:45px;
+        background:#8d3f1b;
+        color:#fff;
+        cursor:pointer;
+        font-size: 20px;
+        border:transparent ;
+        box-shadow: 0 2px 2px rgba(0,0,0,0.2) ;
+    }
+
+    .loginbutton input:hover{
+        background:#fbd391;
+        color:#8d3f1b;
+    }
+    .wronglogin{
+        height:25px;
+        width: 200px;
+        color:red;
+        margin: 0 auto;
+        margin-top: 20px;
+        font-size: 13px;
+        line-height: 13px;
+
+    }
+    .change_link{
+        width:240px;
+        height:20px;
+        margin: 0 auto;
+        text-align: right;
+        margin-top: 20px;
+    }
+
+
+</style>
+
+</head>
+<body bgcolor="#eadac1">
+<!--<header>-->
+    <!--&lt;!&ndash;/*页面头部分*/&ndash;&gt;-->
+    <!--<nav>-->
+        <!--&lt;!&ndash;logo部分开始&ndash;&gt;-->
+        <!--<div class="logo">-->
+            <!--<img src="images/logo.png" height=width=alt="">-->
+        <!--</div>-->
+        <!--&lt;!&ndash;logo部分结束&ndash;&gt;-->
+        <!--&lt;!&ndash;导航栏部分开始&ndash;&gt;-->
+        <!--<div class="navbar">-->
+            <!--<ul>-->
+                <!--<li><a herf=""#>首页</a></li>-->
+                <!--<li><a herf=""#>社区</a></li>-->
+                <!--<li><a herf=""#>寄养</a></li>-->
+                <!--<li><a herf=""#>关于我们</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;导航栏部分开始&ndash;&gt;-->
+        <!--&lt;!&ndash;个人中心部分开始&ndash;&gt;-->
+        <!--<div class="personal" style="display: flex; align-items: center; ">-->
+            <!--<a herf="#">个人中心</a>-->
+            <!--<img src="images/infor.png" alt="">-->
+            <!--<img src="images/head.png"><img>-->
+            <!--<a herf="#">zhanghznag</a>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;个人中心部分结束&ndash;&gt;-->
+        <!--&lt;!&ndash;搜索框部分开始&ndash;&gt;-->
+        <!--<div class="search">-->
+            <!--<form action="">-->
+                <!--<input type="text" placeholder="请输入关键词">-->
+                <!--&lt;!&ndash;placeholder占位符 内容输入自动清除默认值&ndash;&gt;-->
+                <!--<input type="submit" value="">-->
+            <!--</form>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;搜索框部分开始&ndash;&gt;-->
+
+
+    <!--</nav>-->
+<!--</header>-->
+<iframe class="head_ifream" src="head_5.html" frameborder="0" scrolling="no" height="80px" style="width: 100%"></iframe>
+<iframe src="try.html" width="100%" height="540"  frameborder="0" scrolling="no"></iframe>
+<!--轮播部分开始-->
+<!--轮播部分结束-->
+
+<!--登录按键 开始-->
+<div class="loggin">
+
+
+    <div id="login" class="animate form">
+        <!--<form autocomplete="on">-->
+            <div class="logblock">
+                <h1>登录</h1><hr><br>
+                <p>
+                    <label for="phonenumber" class="uname" data-icon="u" > 手机号码 </label>
+                    <input id="phonenumber" name="phonenumber" required="required" type="text" placeholder="eg.186XXXX021"/>
+                </p>
+                <p>
+                    <label for="password" class="youpasswd" data-icon="p"> 密&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;码   </label>
+                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" />
+                </p>
+                <!--<div class="keeplogin">-->
+                    <!--<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />-->
+                    <!--<label for="loginkeeping">记住账号</label>-->
+                <!--</div>-->
+                <div class="loginbutton">
+                    <input type="button" value="Log in" onclick="check()" />
+                </div>
+                <div id= "error" class="wronglogin">
+                    <p> <span id="tip" style="color:red;"></span></p>
+                </div>
+                <div class="change_link">
+                    还没有账号？
+                    <a href="../register/register.html" class="to_register">加入我们 </a>
+                </div>
+
+            </div>
+        <!--</form>-->
+    </div>
+    <span href="#" class="button" id="toggle-login" onclick="try2()">登录</span>
+    <iframe class="footer" src="../mainpage/footer.html" frameborder="0" scrolling="no" height="200px" style="width: 100%"></iframe>
+
+    <script>
+
+        window.onload=function () {
+           /* alert("lalala");*/
+            $('#login').hide();
+        }
+        function try2() {
+           /*/!**!/alert("ll");*/
+           document.getElementById("toggle-login").parentNode.removeChild(document.getElementById("toggle-login"));
+            document.getElementById("login").style.position="relative";
+            document.getElementById("login").style.bottom="430px";
+            document.getElementById("login").style.display="block";
+         }
+
+        function check(){
+            var username = document.getElementById('phonenumber').value;
+            var password = document.getElementById('password').value;
+            if(username == ''){
+                document.getElementById('tip').innerHTML = "用户名不能为空";
+                return;
+            }
+            if(password == ''){
+                document.getElementById('tip').innerHTML = "密码不能为空";
+                return;
+            }
+            show();
+        }
+
+        function show()
+        {
+            var phonenumber = document.getElementById('phonenumber').value;
+            var password = document.getElementById('password').value;
+
+            if (window.XMLHttpRequest)
+            {
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    //document.getElementById("tip").innerHTML=xmlhttp.responseText;
+                    var judge = xmlhttp.responseText;
+                    if(judge == 1)
+                    {
+                        window.location.href ="../mainpage/gerenzhongxin.html";
+                    }
+                    else
+                    {
+                        document.getElementById("tip").innerHTML = "用户名或密码不正确";
+                    }
+                }
+            }
+            xmlhttp.open("GET","login.php?phonenumber=" + phonenumber + "&password=" + password,true);
+            xmlhttp.send();
+        }
+
+
+    </script>
+
+</div>
+<!--登录按键 结束-->
+</body>
+</html>

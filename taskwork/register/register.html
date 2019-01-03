@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册界面</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+<form id="register" method="post" action = "register.php">
+    <div>
+        &nbsp;&nbsp;昵&nbsp;&nbsp;称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="name" placeholder="请输入昵称">
+    </div>
+    <div>
+        &nbsp;&nbsp;性&nbsp;&nbsp;别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="gender" value="male" checked style="text-align: center">男
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="gender" value="female" style="text-align: center">女
+    </div>
+    <div>
+        &nbsp;&nbsp;生&nbsp;&nbsp;日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="date" name="birthday">
+     </div>
+     <div>
+         &nbsp;&nbsp;密&nbsp;&nbsp;码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <input type="password"  name="password" id="pwd1" placeholder="请输入密码">
+     </div>
+    <div>
+    确认密码&nbsp;&nbsp;&nbsp;
+        <input type="password" onblur="checkpwd();" id="pwd2" placeholder="请再次输入密码">
+        <div id="msg" style="display: inline"></div>
+    </div>
+    <div id="left">
+    <img src="image/logo.png" id="logo">
+        <p>佳家宠，让我们摆脱寄养担忧</p>
+        <p>让宠物像在自己家一样的生活</p>
+        <p>让每一次寄养变成有爱之旅💗</p>
+    </div>
+    <div>
+        &nbsp;&nbsp;手机号&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="phonenumber" onkeyup="this.value=this.value.replace(/\D/g,'')" placeholder="请输入手机号" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+        <input class="yuying" id="dynamic" value="发送验证码" type="button">
+    </div>
+    <div>
+        &nbsp;&nbsp;验证码&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="tel" id="code" placeholder="请输入验证码">
+    </div>
+    <div>
+    上传头像&nbsp;&nbsp;&nbsp;
+        <input type="file" id="file" name="head">
+    </div>
+    <!--runat="server"直接回交服务器,处理数据,又以数据加密后的hidden属性的input控件插入回去-->
+    <!--ruant="server"表示这个控件是在服务器端运行的，说简单点就是你可以在.cs后台代码里引用到这个控件。-->
+    <div>
+        &nbsp;&nbsp;地&nbsp;&nbsp;区&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="province" id="province" runat="server" onchange="selectprovince(this);"></select>
+        <select name="city" id="city" runat="server" ></select>
+        <div style="color: grey; font-size:13px;font-weight: normal">
+            <input type="checkbox" id="deal" onchange="checkdeal();" >已同意《佳家宠用户协议》
+        </div>
+
+    </div> <button type="submit" id="submit" disabled="disabled" name = "sub">提交信息</button>
+</form>
+
+<script src="location.js"></script>
+<script>
+    function checkpwd() {
+        var pwd1=document.getElementById('pwd1');
+        var pwd2=document.getElementById('pwd2');
+        if (pwd1.value !== pwd2.value&&pwd1.value!=="")
+        {
+            pwd2.style.color = 'red';
+            document.getElementById("msg").innerHTML = "两次输入密码不一致，请重新输入";
+            return false;
+        }
+        else{
+            document.getElementById("msg").innerHTML = "";
+            pwd2.style.color = 'black';
+            return true;
+        }
+    }
+    function checkdeal() {
+        checkpwd();
+        if(document.getElementById('deal').checked === true&&checkpwd()===true){
+            console.log("选中了");
+            document.getElementById('submit').disabled=false;
+        }else
+        {
+            document.getElementById('submit').disabled=true;
+        }
+
+    }
+</script>
+
+</body>
+</html>

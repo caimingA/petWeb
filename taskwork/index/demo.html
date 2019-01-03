@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/demo.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            imgZoomInit()//模块初始化
+        })
+
+        function imgZoomInit(){
+            $('.piclist li.pic').append(function(){
+                ht = $(this).find('.in').html();
+                return "<div class='original'>"+ht+"</div>";
+            });
+
+            $(".piclist li.pic .in img").each(function(i){
+                var img = $(this);
+                var realWidth ;//原始宽度
+                var realHeight ;//原始高度
+                var vs ;//图片宽高比
+
+                realWidth = this.width;
+                realHeight = this.height;
+                vs = realWidth/realHeight;
+
+                //缩略图比例230:142(约等于1.62)
+                if(vs>=1.62){//横图则固定高度
+                    $(img).css("width","auto").css("height","142px").css("marginLeft",115-(71*realWidth/realHeight)+"px");
+                }
+                else{//竖图则固定宽度
+                    $(img).css("width","230px").css("height","auto").css("marginTop",71-(115*realHeight/realWidth)+"px");
+                }
+
+                //图片放大水平垂直居中显示
+                if(vs>=1){//横图或正方形
+                    $(img).parent().parent().parent().find('.original img').height(260);
+                    $(img).parent().parent().parent().find('.original img').width('auto');
+                    $(img).parent().parent().parent().find('.original').css({
+                        //此处需结合实际情况计算 左偏移：.original实际宽度的二分之一
+                        marginLeft: function(){
+                            return -(130*realWidth/realHeight)-6;
+                        },
+                        left:'50%'
+                    })
+                }else{//竖图
+                    $(img).parent().parent().parent().find('.original img').width(260);
+                    $(img).parent().parent().parent().find('.original img').height('auto');
+                    $(img).parent().parent().parent().find('.original').css({
+                        //此处需结合实际情况计算 上偏移：.original实际高度的二分之一
+                        marginTop: function(){
+                            return -(130*realHeight/realWidth)-36;
+                        },
+                        top:'50%'
+                    });
+                    $(img).parent().parent().parent().find('.original b').css('display','block')
+                }
+            });
+
+
+            $('.piclist li.pic').hover(function(){
+                $(this).addClass('on');
+            },function(){
+                $(this).removeClass('on');
+            })
+
+            $(".piclist ul li:nth-child(4n)").addClass('r');
+        }
+
+
+    </script>
+</head>
+<body>
+<iframe class="head_ifream" src="head_3.html" frameborder="0" scrolling="no" height="80px" style="width: 100%"></iframe>
+<div class="div1" style="background-color: #f9b490">
+    <div class="banner">
+        <!--精品推荐-->
+        <div class="head">
+            <a href="#a">精选</a>
+            <a href="#b">推荐家庭</a>
+            <a href="#c">为你推荐</a>
+            <a href="#d">我的附近</a>
+            <a href="#e">热门活动</a>
+            <a href="#f">推荐阅读</a>
+            <a href="#">成为寄养家庭</a>
+        </div>
+        <!--精品推荐-->
+    </div>
+<script>
+
+</script>
+
+</div>
+<div class="div2" id="a">
+    <div class="banner21">
+        <div class="hjd">
+            <h4>精选</h4>
+            <a href="#">查看全部</a>
+        </div>
+    </div>
+    <div class="banner22">
+        <div class="picbox">
+            <h2>精选</h2>
+            <p class="text">别去笼子，让毛孩子住我家<br />
+                选择我们的几点理由：</p>
+            <div class="picshow picshow01">
+                <div class="piclist">
+                    <ul>
+                        <li class="pic" id="tes">
+                            <div class="in">
+                                <div class="imgdiv"><img src="images/shenzhen.jpg" alt="" width="458" height="330"/></div>
+                                <span><b>温暖充足的阳光</b>reason  one</span>
+                            </div>
+                        </li>
+                        <li class="pic">
+                            <div class="in">
+                                <div class="imgdiv"><img src="images/cake.jpg" alt="" width="395" height="300" /></div>
+                                <span><b>新鲜可口的食物</b>reason  two</span>
+                            </div>
+                        </li>
+                        <li class="pic">
+                            <div class="in">
+                                <div class="imgdiv"><img src="images/smile.jpg" alt="" width="406" height="300" /></div>
+                                <span><b>有爱抚，有固定的散步时间</b>reason  three</span>
+                            </div>
+                        <li class="pic">
+                            <div class="in">
+                                <div class="imgdiv"><img src="images/cat.jpg" alt="" width="347" height="320" /></div>
+                                <span><b>还有一起玩耍的小伙伴</b>reason  four</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text">用<img src="images/love.png"alt="" width="34=" height="34" style="margin: 0 auto"  />确保每一次寄养的安全<br />
+        </div>
+    </div>
+</div>
+<div class="div3" id="b">
+    <div class="banner31">
+        <div class="hjd">
+            <h4>推荐家庭</h4>
+            <a href="#">查看全部</a>
+        </div>
+    </div>
+    <div class="banner32">
+        <iframe src="index.html" width="1040" height="350"  frameborder="0" scrolling="no"  align="middle" ></iframe>
+    </div>
+</div>
+<div class="div7"id="c">
+    <div class="banner71">
+        <div class="hjd">
+            <h4>为你推荐</h4>
+            <a href="#">查看全部</a>
+        </div>
+    </div>
+    <div class="banner7">
+        <div class="banner72">
+            <div class="square1">
+                <div class="ruser">
+                    <div class="recommenduser container">
+                         <div class="title">
+                             <span style="color:#c30d23;font-size: 20px;font-weight: 800;text-align: center">今天，我不小心成了英雄的母亲</span>
+                         </div>
+                         <ul class="list">
+                            <li>
+                                <a href="#"target="_blank" class="avatar">
+                                     <img src="images/shenzhen.jpg">
+                                </a>
+                                <a href="#" target="_blank" class="name">念远坏人</a>
+                                <p>发表过99篇文章 * 2.4k喜欢</p>
+                            </li>
+                        </ul>
+                     </div>
+                 </div>
+                <div class="passage">
+                    <p style="text-align: center;color: #444;font-size: 18px">愿毛孩子都好好的</p>
+                    <tr></tr>
+                    <h1 style="text-align: center;color: #999;font-size: 16px;margin-top: 5px;display: block">第一段</h1><tr></tr>
+                    <h2 style="text-align: center;color: #aaa;font-size: 14px;font-weight: normal;margin-top: 5px;display: block;padding:8px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8月14号，昨天。刷微博看见求助帖，一只患了胰腺炎的15岁大橘需要血源。一时激动，立刻就和家人达成共识马上去献猫血。然后慢慢冷静下来，又有很多担心涌上心头。我家只有三爷一个孩子符合要求，三爷年轻力壮，精力充沛，吃嘛嘛香，但还是担心那0.0001的危险。询问过医生得知得到献血不影响自家猫咪的身体健康的承诺之后。我和孩子他爸，决定一起带着大橘去献血！</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner7">
+        <div class="banner723">
+            <div class="square1">
+                <div class="ruser">
+                    <div class="recommenduser container">
+                        <div class="title">
+                            <span style="color:#c30d23;font-size: 20px;font-weight: 800;text-align: center">如何给自家的宠物挑选到合适的临时住所</span>
+                        </div>
+                        <ul class="list">
+                            <li>
+                                <a href="#"target="_blank" class="avatar">
+                                    <img src="images/lulu.png">
+                                </a>
+                                <a href="#" target="_blank" class="name">露露的士速递</a>
+                                <p>发表过2篇文章 * 200喜欢</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="passage">
+                    <p style="text-align: center;color: #444;font-size: 18px">首先不到迫不得已，千万不要给小宠物换环境</p>
+                    <tr></tr>
+                    <h1 style="text-align: center;color: #999;font-size: 16px;margin-top: 5px;display: block">第一段</h1><tr></tr>
+                    <h2 style="text-align: center;color: #aaa;font-size: 14px;font-weight: normal;margin-top: 5px;display: block;padding:8px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8月14号，昨天。刷微博看见求助帖，一只患了胰腺炎的15岁大橘需要血源。一时激动，立刻就和家人达成共识马上去献猫血。然后慢慢冷静下来，又有很多担心涌上心头。我家只有三爷一个孩子符合要求，三爷年轻力壮，精力充沛，吃嘛嘛香，但还是担心那0.0001的危险。询问过医生得知得到献血不影响自家猫咪的身体健康的承诺之后。我和孩子他爸，决定一起带着大橘去献血！</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner7">
+        <div class="banner721">
+            <div class="square1">
+                <div class="ruser">
+                    <div class="recommenduser container">
+                        <div class="title">
+                            <span style="color:#c30d23;font-size: 20px;font-weight: 800;text-align: center">给小主准备伙食的二三事</span>
+                        </div>
+                        <ul class="list">
+                            <li>
+                                <a href="#"target="_blank" class="avatar">
+                                    <img src="images/miao.png">
+                                </a>
+                                <a href="#" target="_blank" class="name">miao猫星人</a>
+                                <p>发表过43篇文章 * 1.2k喜欢</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="passage">
+                    <p style="text-align: center;color: #444;font-size: 18px">如何准备狗粮</p>
+                    <tr></tr>
+                    <h1 style="text-align: center;color: #999;font-size: 16px;margin-top: 5px;display: block">第一段</h1><tr></tr>
+                    <h2 style="text-align: center;color: #aaa;font-size: 14px;font-weight: normal;margin-top: 5px;display: block;padding:8px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8月14号，昨天。刷微博看见求助帖，一只患了胰腺炎的15岁大橘需要血源。一时激动，立刻就和家人达成共识马上去献猫血。然后慢慢冷静下来，又有很多担心涌上心头。我家只有三爷一个孩子符合要求，三爷年轻力壮，精力充沛，吃嘛嘛香，但还是担心那0.0001的危险。询问过医生得知得到献血不影响自家猫咪的身体健康的承诺之后。我和孩子他爸，决定一起带着大橘去献血！</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="div4" id="d">
+    <div class="banner41">
+        <div class="hjd">
+            <h4>我的附近</h4>
+            <a href="#">查看全部</a>
+        </div>
+    </div>
+    <div class="banner42">
+        <div class="near">
+            <ul>
+                <li>
+                    <img class="nearby" src="images/family.jpg">
+                    <img style="float: left;border-radius: 50%;margin: 2px;" src="images/yonghu.png">
+                    <h2  class="yonghu" >
+                        nihaoya
+                        <br>
+                        <h4 style="color: goldenrod;display: block;">
+                            >宠物安全承诺金 & >随时可接单
+                        </h4>
+                    </h2>
+                    <a href="#">个人资料 </a>
+                    <p>评分：5.0</p><p>| 96 条评价</p>
+                </li>
+            </ul>
+        </div>
+        <div class="near">
+            <ul>
+                <li>
+                    <img class="nearby" src="images/family1.PNG">
+                    <img style="float: left;border-radius: 50%;margin: 2px;" src="images/yonghu2.png">
+                    <h2  class="yonghu" >
+                        yonghuer
+                        <br>
+                        <h4 style="color: goldenrod;display: block;">
+                            >宠物安全承诺金 & >随时可接单
+                        </h4>
+                    </h2>
+                    <a href="#">个人资料 </a>
+                    <p>评分：5.0</p><p>| 96 条评价</p>
+                </li>
+            </ul>
+        </div>
+        <div class="near">
+            <ul>
+                <li>
+                    <img class="nearby" src="images/family3.PNG">
+                    <img style="float: left;border-radius: 50%;margin: 2px;" src="images/yonghu2.png">
+                    <h2  class="yonghu" >
+                        yonghuer
+                        <br>
+                        <h4 style="color: goldenrod;display: block;">
+                            >宠物安全承诺金 & >随时可接单
+                        </h4>
+                    </h2>
+                    <a href="#">个人资料 </a>
+                    <p>评分：5.0</p><p>| 96 条评价</p>
+                </li>
+            </ul>
+        </div>
+        <div class="near">
+            <ul>
+                <li>
+                    <img class="nearby" src="images/family2.PNG">
+                    <img style="float: left;border-radius: 50%;margin: 2px;" src="images/yonghu.png">
+                    <h2  class="yonghu" >
+                        nihaoua
+                        <br>
+                        <h4 style="color: goldenrod;display: block;">
+                            >宠物安全承诺金 & >随时可接单
+                        </h4>
+                    </h2>
+                    <a href="#">个人资料 </a>
+                    <p>评分：5.0</p><p>| 96 条评价</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="div5"id="e">
+    <div class="banner51">
+        <div class="hjd">
+            <h4>热门活动</h4>
+            <a href="#">查看全部</a>
+        </div>
+    </div>
+    <div class="banner52">
+       <div class="now">
+           <div class="now-icon">
+               <img class="img1" src="images/now.png">
+               <p class="p1">正在进行</p>
+           </div>
+           <div class="now-content1">
+               <div class="mengabn">
+                   <h1 style="text-align: left;color: #fff;font-size: 38px;font-weight: normal;letter-spacing:2px;margin-top: 60px;margin-left: 35px">第47期一起打卡鸭</h1>
+                   <h2 style="text-align: left;color: #fff;font-size: 28px;font-weight: normal;letter-spacing:1px;margin-top: 75px;margin-left: 35px">2018.0822-2018.0905</h2>
+               </div>
+           </div>
+       </div><br><br><br><br>
+        <div class="now">
+            <div class="now-icon">
+                <img class="img1" src="images/fomer.png">
+                <p class="p1">&nbsp往届活动</p><br>
+            </div>
+            <div class="now-content">
+                <div class="mengabn">
+                    <h1 style="text-align: left;color: #fff;font-size: 38px;font-weight: normal;letter-spacing:2px;margin-top: 60px;margin-left: 35px">第46期领养流浪</h1>
+                    <h2 style="text-align: left;color: #fff;font-size: 28px;font-weight: normal;letter-spacing:1px;margin-top: 75px;margin-left: 35px">2018.0605-2018.0822</h2>
+                </div>
+            </div>
+            <br><br><br>
+            <div class="now-content2">
+                <div class="mengabn">
+                    <h1 style="text-align: left;color: #fff;font-size: 38px;font-weight: normal;letter-spacing:2px;margin-top: 60px;margin-left: 35px">第45期向主子请安</h1>
+                    <h2 style="text-align: left;color: #fff;font-size: 28px;font-weight: normal;letter-spacing:1px;margin-top: 75px;margin-left: 35px">2018.0322-2018.0605</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="div6"id="f">
+    <div class="banner61">
+        <div class="hjd">
+            <h4>精选阅读</h4>
+            <a href="#">查看全部</a>
+        </div>
+    </div>
+    <div class="banner62">
+    <iframe src="index2.html" width="820" height="465"  frameborder="0" scrolling="no"  align="middle" ></iframe>
+    </div>
+</div>
+<iframe class="footer" src="../mainpage/footer.html" frameborder="0" scrolling="no" height="200px" style="width: 100%"></iframe>
+</body>
+</html>

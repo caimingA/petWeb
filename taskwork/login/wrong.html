@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript">
+        function check(){
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            if(username == ''){
+                document.getElementById('tip').innerHTML = "用户名不能为空";
+                return;
+            }
+            if(password == ''){
+                document.getElementById('tip').innerHTML = "密码不能为空";
+                return;
+            }
+        }
+    </script>
+
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td colspan="2">
+            <span id="tip" style="color:red;"></span>
+        </td>
+    </tr>
+    <tr>
+        <td>用户名</td>
+        <td><input type="text" id="username"></td>
+    </tr>
+    <tr>
+        <td>密码</td>
+        <td><input type="password" id="password"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="button" value="提交" onclick="check();">
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>

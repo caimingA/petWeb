@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+    padding:0;
+    list-style: none;
+}
+body{
+    background-color:  antiquewhite;
+
+}
+#cen{
+    margin: 0 auto;
+}
+#kind img{
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+}
+#help{
+    margin-top: 20px;
+    width: 1000px;
+    height: 80px;
+    background-color: rgba(255,255,255,0.5);
+    padding: 20px;
+    border-radius: 50px 50px 0 0;
+}
+#kind{
+    float: left;
+    margin-left: 30px;
+}
+#filtrate select{
+    float: left;
+    margin-left:45px;
+
+    height: 29px;
+    font-size: 16px;
+    width: 130px;
+
+}
+#right{
+    width: 65%;
+    float: left;
+    /*margin-left:30px;*/
+}
+#date{
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+#date input{
+    height: 25px;
+    font-size: 18px;
+}
+/*#kind_cat{*/
+/*position: relative;*/
+/*float: left;*/
+/*}*/
+#filtrate{
+
+    font-size: 19px;
+    margin-top: 22px;
+}
+.family{
+    float: left;
+    width: 1040px;
+    height: 280px;
+    background-color: rgba(255,255,255,0.5);
+    margin-top: 14px;
+
+
+}
+
+
+
+.location{
+    float: left;
+    margin-left: -340px;
+    margin-top:220px;
+    background-color: lightgray;
+    opacity: 0.9;
+    border-radius: 5px;
+    width: 150px;
+    height: 27px;
+    font-size: 16px;
+    text-align: center;
+}
+.family_name{
+    float: left;
+    margin-left: -340px;
+    margin-top:30px;
+    background-color: lightgray;
+    opacity: 0.9;
+    border-radius: 5px;
+    width: 110px;
+    height: 27px;
+    font-size: 16px;
+    text-align: center;
+}
+.star{
+    float: left;
+    margin-left: -130px;
+    margin-top:27px;
+    background-color: lightgray;
+    opacity: 0.9;
+    border-radius: 5px;
+    width: 110px;
+    height: 60px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.top img {
+    height: 58px;
+    width: 58px;
+}
+button{
+    width: 105px;
+    height: 40px;
+    border-radius: 5px;
+    font-family: 寰蒋闆呴粦;
+    font-size: 18px;
+    color: white;
+    background-color: #D9B38C ;
+    margin-left: 90px;
+
+
+}
+button:hover {
+    background:#fbd391;
+    color:#8d3f1b;
+}
+.pet_price img{
+    width: 58px;
+    height:58px;
+
+}
+.dog_all {
+    background-color: #F5F5F5;
+    opacity: 0.8;
+    border-radius:8px;
+    width: 120px;
+    height: 40px;
+    padding: 8px;
+    display: inline-block;
+    vertical-align: top;
+
+}
+.cat_all  {
+    display: inline-block;
+    vertical-align: 75%;
+    background-color: #F5F5F5;
+    opacity: 0.8;
+    border-radius:8px;
+    width: 120px;
+    height: 20px;
+    padding: 8px;
+}
+.bath_all {
+    display: inline-block;
+    background-color: #F5F5F5;
+    opacity: 0.8;
+    border-radius:8px;
+    width: 120px;
+    height: 20px;
+    padding: 8px;
+    vertical-align: 75%;
+}
+
+.operation{
+    float: right;
+    margin-right: 300px;
+    margin-top: -50px;
+}
+/*  淇敼鏃ュ巻鎺т欢绫诲瀷 */
+::-webkit-inner-spin-button { visibility: hidden; }    /*杩欐槸鎺у埗涓婁笅灏忕澶寸殑*/
+::-webkit-calendar-picker-indicator {      /*杩欐槸鎺у埗涓嬫媺灏忕澶寸殑*/
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: inset 0 2px #fff, 0 0.9px #eee;
+    background-color: #eeeeee;
+    background-image: -webkit-linear-gradient(top, #f0f0f0, #e6e6e6);
+    color: #fbd391;
+}
+.family_picture{
+    float: left;
+    width: 350px;
+    height:240px;
+    margin-top: 20px;
+    margin-left: 20px
+}

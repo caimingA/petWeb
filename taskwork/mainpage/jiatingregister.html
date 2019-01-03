@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册界面</title>
+    <!--<link rel="stylesheet" href="register.css">-->
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            float:left
+        }
+        input{
+            float: left;
+            height: 25px;
+        }
+        body div{
+            float:left;
+            height:30px;
+            line-height: 30px;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+        .home_style{
+            margin-top:20px;
+            margin-left: 50px;
+            width: 900px;
+            /*height: 100px;*/
+            /*background-color: #75c3e7;*/
+        }
+        .jiatingre_head{
+            width: 100%;
+            height: 40px;
+            /*background-color: #75c3e7;*/
+            padding-left: 50px;
+            font-size: 24px;
+        }
+        .fenjiexian{
+            background-color: #cccccc;
+            width:80%;
+            height: 2px;
+        }
+        .area_style{
+            margin-top:20px;
+            margin-left: 50px;
+            width: 700px;
+            height: 100px;
+            line-height: 100px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div id="jiatingre_head" class="jiatingre_head"><div style="width: 100%">寄养家庭注册</div>
+    <div id="fenjiexian" class="fenjiexian"></div>
+</div>
+<form id="register" method="post" action = "homeregister.php" >
+    <div class="home_style">
+        <div  style="width: 300px"> &nbsp;&nbsp;给家起个名字吧&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <input type="text" name="family_name" placeholder="请输入家的名字" >
+    </div>
+    <div class="home_style">
+        <div  style="width: 300px"> &nbsp;&nbsp;地&nbsp;&nbsp;区&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+        <select name="province" id="province" runat="server" onchange="selectprovince(this);" style="height: 30px"></select>
+        <select name="city" id="city" runat="server" style="height: 30px"></select>
+    </div>
+    <div class="area_style">
+        <div  style="width: 300px;height: 100px;line-height: 100px">&nbsp;&nbsp;详细地址&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <textarea type="text" name="home_address" placeholder="请输入详细地址" style="width: 300px;height: 100px"></textarea>
+    </div>
+    <div class="home_style">
+        <div  style="width: 300px"> &nbsp;&nbsp;房屋面积&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <input type="text" name="squre" placeholder="请输入房屋面积">
+    </div>
+    <div class="home_style">
+        <div  style="width: 300px">&nbsp;&nbsp;是否有电梯;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <input type="radio" name="lift" value="1" checked><div style="width: 100px">有</div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="lift" value="0"><div>无</div>
+    </div>
+    <div class="home_style">
+        <div  style="width: 300px">&nbsp;&nbsp;是否有封闭阳台;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <input type="radio" name="sun" value="1" checked><div style="width: 100px">有</div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="sun" value="0"><div>无</div>
+    </div>
+    <div class="home_style">
+        <div  style="width: 300px">&nbsp;&nbsp;是否有空调;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <input type="radio" name="air" value="1" checked><div style="width: 100px">有</div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="air" value="0"><div>无</div>
+    </div>
+    <div class="home_style">
+        <div  style="width: 300px">&nbsp;&nbsp;是否有小区花园;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <input type="radio" name="garden" value="1" checked> <div style="width: 100px">有</div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="garden" value="0"><div>无</div>
+    </div>
+    <div id="fuxuankuang1" class="home_style">
+        <div  style="width: 300px">&nbsp;&nbsp;选择寄养种类;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <input type="checkbox" name="house_kind" value="small_dog"  id="small_dog"><div style="width: 100px">small_dog</div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" name="house_kind" value="big_dog" id="big_dog" ><div style="width: 100px">big_dog</div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" name="house_kind" value="cat" id="catt"><div style="width: 100px">cat</div>
+        <div>
+            <div id="xiaoxingquan" style="display: none">
+                <div  style="width: 300px ;margin-left: 50px">
+                    &nbsp;&nbsp;小型犬托管价格&nbsp;&nbsp;元/日&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <input type="text" name="dogPriceSmall" id="xiaoxingquan_jiage" placeholder="请输入您的定价">
+            </div>
+            <div id="zhongxingquan" style="display: none">
+                <div  style="width: 300px;margin-left: 50px">
+                    &nbsp;&nbsp;中型犬托管价格&nbsp;&nbsp;元/日&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <input type="text" name="dogPriceBig" id="zhongxingquan_jiage" placeholder="请输入您的定价">
+            </div>
+            <div id="maomi" style="display: none">
+                <div  style="width: 300px;margin-left: 50px">
+                    &nbsp;&nbsp;猫咪托管价格&nbsp;&nbsp;元/日&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <input type="text" name="catPrice" id="maomi_jiage" placeholder="请输入您的定价">
+            </div>
+        </div>
+    </div>
+    <div  class="home_style" >
+        <div  style="width: 300px">
+            &nbsp;&nbsp;洗澡价格&nbsp;&nbsp;元/日&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <input type="text" name="shower"  placeholder="请输入您的定价">
+    </div>
+    <div class="area_style">
+        <div  style="width: 300px;height: 100px;line-height: 100px">&nbsp;&nbsp;家庭简介&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <textarea type="text" name="home_intro" placeholder="请输入家庭简介" style="width: 300px;height: 100px"></textarea>
+    </div>
+    <div class="home_style">
+        <div  style="width: 300px">&nbsp;&nbsp;联系方式&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <input type="text" name="phonenumber" placeholder="请输入联系方式">
+    </div>
+    <div class="home_style">
+        <div  style="width: 300px">&nbsp;&nbsp;验证码&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <input type="tel" id="code" placeholder="请输入验证码">
+    </div>
+    <div class="home_style">
+        <div  style="width: 300px">上传照片&nbsp;&nbsp;&nbsp;</div>
+        <input type="file" id="file" name="head">
+    </div>
+    <!--runat="server"直接回交服务器,处理数据,又以数据加密后的hidden属性的input控件插入回去-->
+    <!--ruant="server"表示这个控件是在服务器端运行的，说简单点就是你可以在.cs后台代码里引用到这个控件。-->
+
+    <div style="width: 100%" class="home_style">
+
+        <div style="color: grey; font-size:13px;font-weight: normal">
+            <input type="checkbox" id="deal" onchange="checkdeal();" >已同意《佳家宠寄养家庭申请协议》
+        </div>
+
+    </div> <button type="submit" id="submit" disabled="disabled" name = "sub" style="margin-left: 450px;width: 100px;height: 50px" >提交信息</button>
+    <!--</div>-->
+</form>
+<script src="location.js"></script>
+<script>
+
+    function checkdeal() {
+        if(document.getElementById('deal').checked === true){
+            console.log("选中了");
+            document.getElementById('submit').disabled=false;
+        }else
+        {
+            document.getElementById('submit').disabled=true;
+        }
+
+    }
+</script>
+
+</body>
+<script>
+    //    var sd= document.getElementById("small_dog");
+    //     sd.addEventListener("checked=='true'",function () {
+    //         alert("sd");
+    //     });
+    //     var bd= document.getElementById("big_dog");
+    //     bd.addEventListener("checked=='true'",function () {
+    //         alert("bg");
+    //     });
+    //     var c= document.getElementById("cat");
+    //     bd.addEventListener("checked=='true'",function () {
+    //         alert("c");
+    //     });
+    // }
+    window.onload = function() {
+        var smalld = document.getElementById("small_dog");
+        smalld.addEventListener('click', function () {
+            if(smalld.checked==true)
+            {
+                document.getElementById("xiaoxingquan").style.display="block";
+                var h=document.getElementById("fuxuankuang1").clientHeight+30;
+                document.getElementById("fuxuankuang1").style.height=h+'px';
+                console.log(h);
+                //    alert(height1);
+                //     alert("zz");
+            }
+
+            if(smalld.checked==false)
+            {
+                document.getElementById("xiaoxingquan_jiage").value="";
+                var h=document.getElementById("fuxuankuang1").clientHeight-30;
+                document.getElementById("fuxuankuang1").style.height=h+'px';
+                document.getElementById("xiaoxingquan").style.display="none";
+            }
+        }, false); //鼠标单击的时候调用showMes这个函数
+
+        var bigd = document.getElementById("big_dog");
+        bigd.addEventListener('click', function () {
+            if(bigd.checked==true)
+            {
+                document.getElementById("zhongxingquan").style.display="block";
+                var h=document.getElementById("fuxuankuang1").clientHeight+30;
+                document.getElementById("fuxuankuang1").style.height=h+'px';
+            }
+
+            if(bigd.checked==false)
+            {
+                var h=document.getElementById("fuxuankuang1").clientHeight-30;
+                document.getElementById("fuxuankuang1").style.height=h+'px';
+                document.getElementById("zhongxingquan_jiage").value="";
+                document.getElementById("zhongxingquan").style.display="none";
+            }
+        }, false); //鼠标单击的时候调用showMes这个函数
+
+        var catt = document.getElementById("catt");
+        catt.addEventListener('click', function () {
+            // alert("zz");
+            if(catt.checked==true)
+            {
+                document.getElementById("maomi").style.display="block";
+                var h=document.getElementById("fuxuankuang1").clientHeight+30;
+                document.getElementById("fuxuankuang1").style.height=h+'px';
+            }
+
+            if(catt.checked==false)
+            {
+                var h=document.getElementById("fuxuankuang1").clientHeight-30;
+                document.getElementById("fuxuankuang1").style.height=h+'px';
+                document.getElementById("maomi_jiage").value="";
+                document.getElementById("maomi").style.display="none";
+            }
+        }, false); //鼠标单击的时候调用showMes这个函数
+    }
+
+</script>
+</html>

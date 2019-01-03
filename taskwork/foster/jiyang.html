@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>寄养主界面</title>
+    <link rel="stylesheet" href="css/jiyang.css">
+
+    <script>
+        function show_02()
+        {
+            var str_01 = document.getElementsByClassName('family_number')[0].innerHTML;
+            console.log("!!!!!!!",document.getElementsByClassName('family_number')[0].innerHTML);
+            console.log("********",str_01);
+            var str_02 = document.getElementsByClassName('family_number')[1].innerHTML;
+            console.log("!!!!!!!",document.getElementsByClassName('family_number')[1].innerHTML);
+            console.log("********",str_02);
+            var str_03 = document.getElementsByClassName('family_number')[2].innerHTML;
+            console.log("!!!!!!!",document.getElementsByClassName('family_number')[2].innerHTML);
+            console.log("********",str_03);
+            // if (str=="")
+            // {
+            //     document.getElementById("wait").innerHTML="";
+            //     return;
+            // }
+            if (window.XMLHttpRequest)
+            {
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    //document.getElementById("wait").innerHTML=xmlhttp.responseText;
+                    var temp = xmlhttp.responseText;
+                    temp = eval(temp);
+                    console.log("排序后的数组：",temp);
+
+                    for(var i=0;i<3;i++)
+                    {
+                        document.getElementsByClassName('size')[i].innerText=temp[i][0]+'平方米';
+                        if(temp[i][1]==1)
+                        {
+
+                            (document.getElementsByClassName('lift')[i]).getElementsByTagName('img')[0].src="css/image/lift.png";
+                            document.getElementsByClassName('lift_txt')[i].innerText="配有电梯";
+
+                        }
+                        else
+                        {
+                            (document.getElementsByClassName('lift')[i]).getElementsByTagName('img')[0].src="css/image/liftno.png";
+                            document.getElementsByClassName('lift_txt')[i].innerText="无电梯";
+                        }
+                        if(temp[i][2]==1)
+                        {
+
+                            (document.getElementsByClassName('balcony')[i]).getElementsByTagName('img')[0].src='css/image/bac.png';
+                            document.getElementsByClassName('bac_txt')[i].innerText="封闭阳台";
+                        }
+                        else
+                        {
+
+                            (document.getElementsByClassName('balcony')[i]).getElementsByTagName('img')[0].src='css/image/bacno.png';
+                            document.getElementsByClassName('bac_txt')[i].innerText="无阳台";
+                        }
+                        if(temp[i][3]==1)
+                        {
+                            (document.getElementsByClassName('air')[i]).getElementsByTagName('img')[0].src='css/image/air.png';
+                            document.getElementsByClassName('air_txt')[i].innerText="配有空调";
+                        }
+                        else
+                        {
+                            (document.getElementsByClassName('air')[i]).getElementsByTagName('img')[0].src='css/image/airno.png';
+                            document.getElementsByClassName('air_txt')[i].innerText="无空调";
+                        }
+                        if(temp[i][4]==1)
+                        {
+                            (document.getElementsByClassName('garden')[i]).getElementsByTagName('img')[0].src='css/image/garden.png';
+                            document.getElementsByClassName('garden_txt')[i].innerText="小区花园";
+                        }
+                        else
+                        {
+                            (document.getElementsByClassName('garden')[i]).getElementsByTagName('img')[0].src='css/image/gardenno.png';
+                            document.getElementsByClassName('garden_txt')[i].innerText="无花园";
+                        }
+                        if(temp[i][5]==0&&temp[i][6]==0)
+                        {
+                            document.getElementsByClassName('dog')[i].style.display='none';
+                        }
+                        else
+                        {
+
+                            console.log("狗狗价格！！",temp[i][5]);
+                            document.getElementsByClassName('dog_small')[i].innerText="小型犬:"+temp[i][5]+"元/天";
+                            document.getElementsByClassName('dog_normal')[i].innerText='中型犬:'+temp[i][6]+"元/天";
+                        }
+                        if(temp[i][7]==0)
+                        {
+                            document.getElementsByClassName('cat_all')[i].style.display='none';
+                        }
+                        else {
+                            document.getElementsByClassName('cat_all')[i].innerText = '猫咪:' + temp[i][7] + "元/天";
+                        }
+                        document.getElementsByClassName('bath_all')[i].innerText = '洗澡:' + temp[i][8] + "元/次";
+                        document.getElementsByClassName('location')[i].innerText = temp[i][9];
+                        document.getElementsByClassName('family_name')[i].innerText = temp[i][10];
+                        document.getElementsByClassName('marks')[i].innerText = temp[i][11];
+                        if(parseInt(document.getElementsByClassName('marks')[i].innerText)>=5.0)
+                        {
+                            document.getElementsByClassName('hearts')[i].innerText="💗💗💗💗💗";
+                        }
+                        else
+                        {
+                            document.getElementsByClassName('hearts')[i].innerText="💗💗💗💗";
+                        }
+                        document.getElementsByClassName('mid')[i].innerText ="Tips："+temp[i][12];
+                    }
+                }
+            }
+            xmlhttp.open("GET","order.php?phonenumber_01=" + str_01 + "&phonenumber_02=" + str_02 + "&phonenumber_03=" + str_03,true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+
+<body>
+<iframe class="head_ifream" src="head_2.html" frameborder="0" scrolling="no" height="80px" style="width: 100%"></iframe>
+<div id="cen" style="float: left;margin-left: 250px ">
+<div id="help">
+    <!--猫狗的品种选择-->
+    <div id="kind">
+        <div style="display: inline-block">
+            <img src="css/image/dog.png">
+
+            <div>&nbsp;&nbsp;狗狗</div></div>
+        &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;
+        <!--<div id="kind_cat">-->
+        <div style="display: inline-block">
+            <img src="css/image/cat.png">
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;猫咪</div></div>
+        <!--</div>-->
+    </div>
+    <div id="vertline" style="background-color:black; width: 1px; height:90%;float: left;margin:0 45px 0 45px"></div>
+    <div id="right">
+        <div id="date">
+            <span>选择寄养时间</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="start" type="date">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span>至</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="end" type="date">
+        </div>
+
+        <div id="filtrate">
+            <div id="tiaojian" style="float: left">条件筛选</div>
+
+            <!-- Unnamed (下拉列表框) -->
+
+            <div>
+                <select id="distance" onchange="distance(event);">
+                    <option value="disatnce">距离</option>
+                    <option value="3">3公里</option>
+                    <option value="5">5公里</option>
+                    <option value="10">10公里</option>
+                </select>
+            </div>
+
+            <!-- Unnamed (下拉列表框) -->
+            <div>
+                <select id="sort" onchange="sort(event);">
+                    <option value="sort">推荐排序</option>
+                    <option value="1">好评优先</option>
+                    <option value="2">价格从低到高</option>
+                </select>
+            </div>
+            <!-- Unnamed (下拉列表框) -->
+            <div>
+                <select id="extra">
+                    <option value="extra">附加服务</option>
+                    <option value="bath">洗澡</option>
+                    <option value="pick">免费接送</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="family">
+    <div class="family_number" style="display: none"></div>
+    <div class="left">
+        <img src="css/image/family.png" alt="家庭照片" class="family_picture" style="width: 350px;height:240px; margin-top: 20px;margin-left: 20px">
+        <span class="location"></span>
+        <span class="family_name"></span>
+
+    </div>
+    <div class="star">
+        <span class="marks" style=" font-size: 25px;color: coral; font-weight: bolder"></span>
+        <hr>
+        <span class="hearts" ></span>
+    </div>
+    <div class="right" style="display: flex;">
+        <div class="meta" style="display: flex;
+    flex-flow: column;">
+             <div class="top" style=" display: flex;
+    flex-flow: row nowrap;
+padding: 20px;">
+                 <div class="homesize" style=" margin-right: 15px;">
+                 <img src="css/image/home.png">
+                 <br>
+                 <div class="size"></div>
+                 </div>
+                 <div class="lift" style=" margin-right: 10px;">
+                 <img src="css/image/lift.png">
+                 <br>
+                 <div class="lift_txt"></div>
+                 </div>
+                 <div class="balcony" style=" margin-right: 10px;">
+                 <img src="css/image/bac.png">
+                 <br>
+                 <div class="bac_txt"></div>
+                 </div>
+                 <div class="air" style=" margin-right: 10px;">
+                 <img src="css/image/air.png">
+                 <br>
+                 <div class="air_txt"></div>
+                 </div>
+                 <div class="garden">
+                 <img src="css/image/garden.png">
+                 <br>
+                 <div class="garden_txt"></div>
+                 </div>
+             </div>
+            <div class="mid" style="margin-left: 45px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-family: 鍗庢枃缁嗛粦;">
+                <p>Tips：</p>
+                <br>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="bottom">
+                <button class="chat" type="button" onclick="show()">联系店家</button>
+                <button class="buy" type="button" onclick="confirm_01()">立即寄养1</button>
+            </div>
+        </div>
+        <div class="pet_price" style="    margin-top: 20px;     margin-left:40px;">
+            <div class="pet_dog" style="       display: flex;">
+                <img src="css/image/dog.png">
+                <div class="dog_all" style="margin-left: 5px;">
+                    <div class="dog_small">
+
+                    </div>
+                    <div class="dog_normal">
+
+                    </div>
+                </div>
+            </div>
+            <div class="pet_cat">
+                <img src="css/image/cat.png">
+                <div class="cat_all">
+
+                </div>
+            </div>
+            <div class="pet_bath">
+                <img src="css/image/bath.png">
+                <div class="bath_all">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="family">
+    <div class="family_number" style="display: none"></div>
+    <div class="left">
+        <img src="css/image/family.png" alt="家庭照片" class="family_picture" style="width: 350px;height:240px; margin-top: 20px;margin-left: 20px">
+        <span class="location"></span>
+        <span class="family_name"></span>
+
+    </div>
+    <div class="star">
+        <span class="marks" style=" font-size: 25px;color: coral; font-weight: bolder"></span>
+        <hr>
+        <span class="hearts" ></span>
+    </div>
+    <div class="right" style="display: flex;">
+        <div class="meta" style="display: flex;
+    flex-flow: column;">
+            <div class="top" style=" display: flex;
+    flex-flow: row nowrap;
+padding: 20px;">
+                <div class="homesize" style=" margin-right: 15px;">
+                    <img src="css/image/home.png">
+                    <br>
+                    <div class="size"></div>
+                </div>
+                <div class="lift" style=" margin-right: 10px;">
+                    <img src="css/image/lift.png">
+                    <br>
+                    <div class="lift_txt"></div>
+                </div>
+                <div class="balcony" style=" margin-right: 10px;">
+                    <img src="css/image/bac.png">
+                    <br>
+                    <div class="bac_txt"></div>
+                </div>
+                <div class="air" style=" margin-right: 10px;">
+                    <img src="css/image/air.png">
+                    <br>
+                    <div class="air_txt"></div>
+                </div>
+                <div class="garden">
+                    <img src="css/image/garden.png">
+                    <br>
+                    <div class="garden_txt"></div>
+                </div>
+            </div>
+            <div class="mid" style="margin-left: 45px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-family: 鍗庢枃缁嗛粦;">
+                <p>Tips：</p>
+                <br>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="bottom">
+                <button class="chat" type="button" onclick="show()">联系店家</button>
+                <button class="buy" type="button" onclick="confirm_02()">立即寄养1</button>
+            </div>
+        </div>
+        <div class="pet_price" style="    margin-top: 20px;     margin-left: 27px;">
+            <div class="pet_dog" style="       display: flex;">
+                <img src="css/image/dog.png">
+                <div class="dog_all" style="margin-left: 5px;">
+                    <div class="dog_small">
+
+                    </div>
+                    <div class="dog_normal">
+
+                    </div>
+                </div>
+            </div>
+            <div class="pet_cat">
+                <img src="css/image/cat.png">
+                <div class="cat_all">
+
+                </div>
+            </div>
+            <div class="pet_bath">
+                <img src="css/image/bath.png">
+                <div class="bath_all">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="family">
+    <div class="family_number" style="display: none"></div>
+    <div class="left">
+        <img src="css/image/family.png" alt="家庭照片" class="family_picture" style="width: 350px;height:240px; margin-top: 20px;margin-left: 20px">
+        <span class="location"></span>
+        <span class="family_name"></span>
+
+    </div>
+    <div class="star">
+        <span class="marks" style=" font-size: 25px;color: coral; font-weight: bolder"></span>
+        <hr>
+        <span class="hearts" ></span>
+    </div>
+    <div class="right" style="display: flex;">
+        <div class="meta" style="display: flex;
+    flex-flow: column;">
+            <div class="top" style=" display: flex;
+    flex-flow: row nowrap;
+padding: 20px;">
+                <div class="homesize" style=" margin-right: 15px;">
+                    <img src="css/image/home.png">
+                    <br>
+                    <div class="size"></div>
+                </div>
+                <div class="lift" style=" margin-right: 10px;">
+                    <img src="css/image/lift.png">
+                    <br>
+                    <div class="lift_txt"></div>
+                </div>
+                <div class="balcony" style=" margin-right: 10px;">
+                    <img src="css/image/bac.png">
+                    <br>
+                    <div class="bac_txt"></div>
+                </div>
+                <div class="air" style=" margin-right: 10px;">
+                    <img src="css/image/air.png">
+                    <br>
+                    <div class="air_txt"></div>
+                </div>
+                <div class="garden">
+                    <img src="css/image/garden.png">
+                    <br>
+                    <div class="garden_txt"></div>
+                </div>
+            </div>
+            <div class="mid" style="margin-left: 45px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-family: 鍗庢枃缁嗛粦;">
+                <p>Tips：</p>
+                <br>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="bottom">
+                <button class="chat" type="button" onclick="show()">联系店家</button>
+                <button class="buy" type="button" onclick="confirm_03()">立即寄养1</button>
+            </div>
+        </div>
+        <div class="pet_price" style="    margin-top: 20px;     margin-left: 27px;">
+            <div class="pet_dog" style="       display: flex;">
+                <img src="css/image/dog.png">
+                <div class="dog_all" style="margin-left: 5px;">
+                    <div class="dog_small">
+
+                    </div>
+                    <div class="dog_normal">
+
+                    </div>
+                </div>
+            </div>
+            <div class="pet_cat">
+                <img src="css/image/cat.png">
+                <div class="cat_all">
+
+                </div>
+            </div>
+            <div class="pet_bath">
+                <img src="css/image/bath.png">
+                <div class="bath_all">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="family">
+    <div class="family_number" style="display: none"></div>
+    <div class="left">
+        <img src="css/image/family.png" alt="家庭照片" class="family_picture" style="width: 350px;height:240px; margin-top: 20px;margin-left: 20px">
+        <span class="location">大连市中山区北斗街</span>
+        <span class="family_name">猫狗的幸福屋</span>
+
+    </div>
+    <div class="star">
+        <span class="marks" style="font-size: 25px;color: coral; font-weight: bolder">5.0</span>
+        <hr>
+        <span class="hearts" >💗💗💗💗💗</span>
+    </div>
+    <div class="right" style="display: flex;">
+        <div class="meta" style="display: flex;
+    flex-flow: column;">
+            <div class="top" style=" display: flex;
+    flex-flow: row nowrap;
+padding: 20px;">
+                <div class="homesize" style=" margin-right: 15px;">
+                    <img src="css/image/home.png">
+                    <br>
+                    <div class="size">96平方米</div>
+                </div>
+                <div class="lift" style=" margin-right: 10px;">
+                    <img src="css/image/lift.png">
+                    <br>
+                    <div class="lift_txt">配有电梯</div>
+                </div>
+                <div class="balcony" style=" margin-right: 10px;">
+                    <img src="css/image/bac.png">
+                    <br>
+                    <div class="bac_txt">封闭阳台</div>
+                </div>
+                <div class="air" style=" margin-right: 10px;">
+                    <img src="css/image/air.png">
+                    <br>
+                    <div class="air_txt">配有空调</div>
+                </div>
+                <div class="garden">
+                    <img src="css/image/garden.png">
+                    <br>
+                    <div class="garden_txt">小区花园</div>
+                </div>
+            </div>
+            <div class="mid" style="margin-left: 45px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-family: 鍗庢枃缁嗛粦;">
+                <p>Tips：</p>
+                <br>
+                <p>允许狗狗上床</p>
+                <p>有专门的猫狗活动区</p>
+            </div>
+            <div class="bottom">
+                <button class="chat" type="button" onclick="show()">联系店家</button>
+                <button class="buy" type="button" onclick="confirm_01()">立即寄养1</button>
+            </div>
+        </div>
+        <div class="pet_price" style="    margin-top: 20px;     margin-left: 40px;">
+            <div class="pet_dog" style="       display: flex;">
+                <img src="css/image/dog.png">
+                <div class="dog_all" style="margin-left: 5px;">
+                    <div class="dog_small">
+                    小型犬：60/天
+                    </div>
+                    <div class="dog_normal">
+                   中型犬：80/天
+                    </div>
+                </div>
+            </div>
+            <div class="pet_cat">
+                <img src="css/image/cat.png">
+                <div class="cat_all">
+                喵咪：60/天
+                </div>
+            </div>
+            <div class="pet_bath">
+                <img src="css/image/bath.png">
+                <div class="bath_all">
+                洗澡：70/次
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<iframe class="footer" src="../mainpage/footer.html" frameborder="0" scrolling="no" height="200px" style="width: 100%"></iframe>
+<script src="js/time.js"></script>
+<script>
+    function distance(e) {
+
+        var familys=document.getElementsByClassName("family");
+        if (e.target.value == 3) {
+            familys[1].style.display='none';
+            familys[2].style.display='none';
+            familys[3].style.display='none';
+        }
+        if (e.target.value == 5) {
+            familys[1].style.display='block';
+            familys[2].style.display='none';
+            familys[3].style.display='none';
+        }
+        if (e.target.value == 10) {
+            familys[1].style.display='block';
+            familys[2].style.display='block';
+            familys[3].style.display='none';
+        }
+    }
+
+    function sort(e) {
+        if (e.target.value ==2) {
+             console.log("排序");
+        show_02();
+        }
+
+    }
+    function gotoConfirm() {
+        window.open("./confirm.html?_ijt=9hdjl6h5mo4mm56efctn93mj37");
+    }
+</script>
+<script>
+    function confirm_01()
+    {
+        var str_01 =document.getElementsByClassName('family_number')[0].innerHTML;//得到对应标签中id的值  //框在family导入value
+        var str_02 =document.getElementById('start').value;
+        var str_03 = document.getElementById('end').value;
+        window.location.href ="confirm.php?host=" + str_01 + "&timefrom=" + str_02 + "&timeto=" + str_03;
+    }
+    function confirm_02()
+    {
+        var str_01 =document.getElementsByClassName('family_number')[1].innerHTML;
+        var str_02 = document.getElementById('start').value;
+        var str_03 = document.getElementById('end').value;
+        window.location.href ="confirm.php?host=" + str_01 + "&timefrom=" + str_02 + "&timeto=" + str_03;
+    }
+    function confirm_03()
+    {
+        var str_01 = document.getElementsByClassName('family_number')[2].innerHTML;
+        var str_02 = document.getElementById('start').value;
+        var str_03 = document.getElementById('end').value;
+        window.location.href ="confirm.php?host=" + str_01 + "&timefrom=" + str_02 + "&timeto=" + str_03;
+    }
+    function show_01()
+    {
+        console.log(document.getElementsByClassName('family_number'));
+        console.log(document.getElementsByClassName('family_number')[0]);
+        var str_01 = "11111111111";
+        document.getElementsByClassName('family_number')[0].innerHTML="11111111111";
+        var str_02 = "22222222222";
+        document.getElementsByClassName('family_number')[1].innerHTML=str_02;
+        var str_03 = "33333333333";
+        document.getElementsByClassName('family_number')[2].innerHTML=str_03;
+        // if (str==="")
+        // {
+        //     // document.getElementById("wait").innerHTML="";
+        //     return;
+        // }
+        if (window.XMLHttpRequest)
+        {
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                //document.getElementById("wait").innerHTML=xmlhttp.responseText;
+
+                 var temp = xmlhttp.responseText;//temp是一个二维数组 家庭信息
+                 temp = eval(temp);
+
+
+
+                console.log(temp[0][0]);
+                for(var i=0;i<3;i++)
+                {
+                    document.getElementsByClassName('size')[i].innerText=temp[i][0]+'平方米';
+                    if(temp[i][1]==1)
+                    {
+
+                        (document.getElementsByClassName('lift')[i]).getElementsByTagName('img')[0].src="css/image/lift.png";
+                        document.getElementsByClassName('lift_txt')[i].innerText="配有电梯";
+
+                    }
+                    else
+                    {
+                       (document.getElementsByClassName('lift')[i]).getElementsByTagName('img')[0].src="css/image/liftno.png";
+                        document.getElementsByClassName('lift_txt')[i].innerText="无电梯";
+                    }
+                    if(temp[i][2]==1)
+                    {
+
+                       (document.getElementsByClassName('balcony')[i]).getElementsByTagName('img')[0].src='css/image/bac.png';
+                        document.getElementsByClassName('bac_txt')[i].innerText="封闭阳台";
+                    }
+                    else
+                    {
+
+                        (document.getElementsByClassName('balcony')[i]).getElementsByTagName('img')[0].src='css/image/bacno.png';
+                        document.getElementsByClassName('bac_txt')[i].innerText="无阳台";
+                    }
+                    if(temp[i][3]==1)
+                    {
+                       (document.getElementsByClassName('air')[i]).getElementsByTagName('img')[0].src='css/image/air.png';
+                        document.getElementsByClassName('air_txt')[i].innerText="配有空调";
+                    }
+                    else
+                    {
+                       (document.getElementsByClassName('air')[i]).getElementsByTagName('img')[0].src='css/image/airno.png';
+                        document.getElementsByClassName('air_txt')[i].innerText="无空调";
+                    }
+                    if(temp[i][4]==1)
+                    {
+                      (document.getElementsByClassName('garden')[i]).getElementsByTagName('img')[0].src='css/image/garden.png';
+                        document.getElementsByClassName('garden_txt')[i].innerText="小区花园";
+                    }
+                    else
+                    {
+                       (document.getElementsByClassName('garden')[i]).getElementsByTagName('img')[0].src='css/image/gardenno.png';
+                        document.getElementsByClassName('garden_txt')[i].innerText="无花园";
+                    }
+                    if(temp[i][5]==0&&temp[i][6]==0)
+                    {
+                        document.getElementsByClassName('dog')[i].style.display='none';
+                    }
+                    else
+                    {
+
+                        console.log("狗狗价格！！",temp[i][5]);
+                        document.getElementsByClassName('dog_small')[i].innerText="小型犬:"+temp[i][5]+"元/天";
+                        document.getElementsByClassName('dog_normal')[i].innerText='中型犬:'+temp[i][6]+"元/天";
+                    }
+                    if(temp[i][7]==0)
+                    {
+                        document.getElementsByClassName('cat_all')[i].style.display='none';
+                    }
+                    else {
+                        document.getElementsByClassName('cat_all')[i].innerText = '猫咪:' + temp[i][7] + "元/天";
+                    }
+                    document.getElementsByClassName('bath_all')[i].innerText = '洗澡:' + temp[i][8] + "元/次";
+                    document.getElementsByClassName('location')[i].innerText = temp[i][9];
+                    document.getElementsByClassName('family_name')[i].innerText = temp[i][10];
+                    document.getElementsByClassName('marks')[i].innerText = temp[i][11];
+                    if(parseInt(document.getElementsByClassName('marks')[i].innerText)>=5.0)
+                    {
+                        document.getElementsByClassName('hearts')[i].innerText="💗💗💗💗💗";
+                    }
+                    else
+                    {
+                        document.getElementsByClassName('hearts')[i].innerText="💗💗💗💗";
+                    }
+                    document.getElementsByClassName('mid')[i].innerText ="Tips："+temp[i][12];
+                }
+                //利用数组给家庭信息赋值！！
+
+
+
+
+            }
+        }
+        xmlhttp.open("GET","foster.php?phonenumber_01=" + str_01 + "&phonenumber_02=" + str_02 + "&phonenumber_03=" + str_03,true);
+        xmlhttp.send();
+    }
+
+    show_01();
+</script>
+<script>
+    function show() {
+
+        var url='Mychat.html';                             //转向网页的地址;
+        var name='add';                            //网页名称，可为空;
+        var iWidth=410;                          //弹出窗口的宽度;
+        var iHeight=500;                         //弹出窗口的高度;
+        //获得窗口的垂直位置
+        var iTop = (window.screen.availHeight - 30 - iHeight) / 2;
+        //获得窗口的水平位置
+        var iLeft = (window.screen.availWidth - 10 - iWidth) / 2;
+        window.open(url, name, 'height=' + iHeight + ',,innerHeight=' + iHeight + ',width=' + iWidth + ',innerWidth=' + iWidth + ',top=' + iTop + ',left=' + iLeft + ',status=no,toolbar=no,menubar=no,location=no,resizable=no,scrollbars=0,titlebar=no');
+        // window.open("AddScfj.aspx", "newWindows", 'height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+    }
+</script>
+</body>
+</html>

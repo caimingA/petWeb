@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>footer</title>
+    <style>
+        .copyright{
+            padding-top: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+        }
+        .copyright span{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .copyright a{
+            color: #666;
+        }
+        .copyright div{
+            margin-top: 20px;
+        }
+        .copyright div p{
+            line-height: 22px;
+        }
+        .foot-icon a{
+            display: inline-block;
+            width: 103px;
+            height: 33px;
+            background: url("../images/ico_footer.png")no-repeat 0 -150px;
+            /*行内块元素可以用text-align：center来实现居中*/
+        }
+        .foot-icon a:nth-child(2){
+            background-position: -103px -150px;
+        }
+        .foot-icon a:nth-child(3){
+            background-position: 0px -183px;
+        }
+        .foot-icon a:nth-child(4){
+            background-position: -103px -183px;
+        }
+        .foot-icon a:nth-child(5){
+            background-position: 0px -216px;
+        }
+        .foot-icon a:nth-child(6){
+            background-position: -103px -216px;
+        }
+
+    </style>
+    <script>
+        var obj = parent.document.getElementById("footer"); //取得父页面IFrame对象
+        // alert(obj.style.height); //弹出父页面中IFrame中设置的高度
+            obj.style.height = this.document.body.scrollHeight+60+'px'; //调整父页面中IFrame的高度为此页面的高度
+    </script>
+</head>
+<body>
+
+<footer>
+    <div class="w copyright">
+        <p>
+            <a href="#">关于我们</a><span>|</span>
+            <a href="#">寄养宠物</a><span>|</span>
+            <a href="#">成为我们</a><span>|</span>
+            <a href="#">联系佳家宠</a><span>|</span>
+            <a href="#">宠物寄养</a><span>|</span>
+            <a href="#">宠物医院</a><span>|</span>
+            <a href="#">活动热门</a><span>|</span>
+            <a href="#">啦啦操比赛</a><span>|</span>
+            <a href="#">我们爱好</a><span>|</span>
+            <a href="#">在编爆炸</a><span>|</span>
+            <a href="#">大城市的</a><span>|</span>
+            <a href="#">宠物档次</a><span>|</span>
+
+        </p>
+        <div>
+            <p>大连公网安备 11000002000088号<span>|</span>辽ICP证070359号<span>|</span>互联网药品信息服务资格证编号(京)-经营性-2014-0008<span>|</span>新出发京零 字第大120007号</p>
+            <p>互联网出版许可证编号新出网证(辽)字150号<span>|</span>出版物经营许可证<span>|</span>网络文化经营许可证辽网文[2014]2148-348号<span>|</span>违法和不良信息举报电话：4006561155</p>
+            <p>Copyright © 2004 - 2018  佳家宠.com 版权所有<span>|</span>消费者维权热线：4006067733经营证照<span>|</span>(辽)网械平台备字(2018)第00003号<span>|</span>营业执照</p>
+            <p>Global Site<span>|</span>Сайт России<span>|</span>Situs Indonesia<span>|</span>Sitio de España|เว็บไซต์ประเทศไทย</p>
+            <p>佳家宠旗下网站：佳家宠钱包<span>|</span>佳家宠云</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+

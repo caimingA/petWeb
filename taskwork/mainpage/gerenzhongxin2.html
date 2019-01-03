@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>lulu的面包房</title>
+    <link rel="stylesheet" href="web2.css">
+
+</head>
+<body bgcolor="#eadac1">
+<iframe class="head_ifream" src="head_1.html" frameborder="0" scrolling="no" height="80px"></iframe>
+<header>
+    <!--/*页面头部分*/-->
+    <!--<nav>-->
+    <!--&lt;!&ndash;logo部分开始&ndash;&gt;-->
+    <!--<div class="logo">-->
+    <!--<img src="images/logo.png" height=width=alt="">-->
+    <!--</div>-->
+    <!--&lt;!&ndash;logo部分结束&ndash;&gt;-->
+    <!--&lt;!&ndash;导航栏部分开始&ndash;&gt;-->
+    <!--<div class="navbar">-->
+    <!--<ul>-->
+    <!--<li><a herf=""#>首页</a></li>-->
+    <!--<li><a herf=""#>社区</a></li>-->
+    <!--<li><a herf=""#>寄养</a></li>-->
+    <!--<li><a herf=""#>关于我们</a></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;导航栏部分开始&ndash;&gt;-->
+    <!--&lt;!&ndash;个人中心部分开始&ndash;&gt;-->
+    <!--<div class="personal">-->
+    <!--<a herf="#">个人中心<img src="images/ifor.png" alt=""></a>-->
+    <!--<a herf="#"><img src="images/had.png">zhanghznag<img></a>-->
+
+    <!--</div>-->
+    <!--&lt;!&ndash;个人中心部分结束&ndash;&gt;-->
+    <!--&lt;!&ndash;搜索框部分开始&ndash;&gt;-->
+    <!--<div class="search">-->
+    <!--<form action="">-->
+    <!--<input type="text" placeholder="请输入关键词">-->
+    <!--&lt;!&ndash;placeholder占位符 内容输入自动清除默认值&ndash;&gt;-->
+    <!--<input type="submit" value="">-->
+    <!--</form>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;搜索框部分开始&ndash;&gt;-->
+
+
+    <!--</nav>-->
+</header>
+<!--banner部分开始-->
+<div class="banner">
+    <div class="slidebar" >
+        <ul>
+            <li id="gerenxinxianjian" style="background-color:#d6b2a0 "><a onclick="gerenxinxi_change()">个人信息    <span> ></span></a></li>
+            <li id="chongwuxinxianjian"><a onclick="chongwuxinxi_change()">宠物信息    <span> ></span></a></li>
+            <li id="jiatingxinxianjian"><a onclick="jiyangjiating_change()">寄养家庭    <span> ></span></a></li>
+            <li id="dingdanxinxianjian"><a onclick="lishidingdan_change()">历史订单    <span> ></span></a></li>
+            <li id="xiaoxixinxianjian"><a onclick="wodexiaoxi_change()">我的消息    <span> ></span></a></li>
+        </ul>
+    </div>
+    <script>
+        window.onload  =function(){
+            // alert("xx");
+            lishidingdan_change()}
+
+
+        function clean() {
+            var arrli=document.getElementsByTagName("li");
+            for (var j = 0; j < arrli.length; j++) {
+                arrli[j].style.backgroundColor = "#a87f62";
+            }
+        }
+
+        function chongwuxinxi_change() {
+            clean();
+            document.getElementById("chongwuxinxianjian").style.backgroundColor="#d6b2a0";
+            document.getElementById("banner-in container").src="mypet.php"
+        }
+        function gerenxinxi_change() {
+            clean();
+            document.getElementById("gerenxinxianjian").style.backgroundColor="#d6b2a0";
+            document.getElementById("banner-in container").src="myinformation.php"
+        }
+        function jiyangjiating_change() {
+            clean();
+            document.getElementById("banner-in container").style.height="1200px";
+            // alert("xx");
+            document.getElementById("jiatingxinxianjian").style.backgroundColor="#d6b2a0";
+            document.getElementById("banner-in container").src="convert.php";
+        }
+
+        function lishidingdan_change() {
+            clean();
+            document.getElementById("dingdanxinxianjian").style.backgroundColor="#d6b2a0";
+            document.getElementById("banner-in container").src="history.php"
+        }
+        function wodexiaoxi_change() {
+            clean();
+            document.getElementById("xiaoxixinxianjian").style.backgroundColor="#d6b2a0";
+            document.getElementById("banner-in container").src="wodexiaoxi.html"
+        }
+    </script>
+    <iframe class="banner-in container" id="banner-in container" frameborder="0" scrolling="no" style="border-radius: 40px">
+
+        <!--左边导航栏 侧边栏开始-->
+
+        <!--<我想吃的面包部分》-->
+        <!--<dl class="timetable">-->
+        <!--<dt>我想吃的面包</dt>-->
+        <!--<dd>-->
+        <!--<h4>坚果面包    了解详情>></h4>-->
+        <!--<p>真材好料、良心品味</p>-->
+        <!--</dd>-->
+        <!--<dd>-->
+        <!--<h4>荞麦面包    了解详情>></h4>-->
+        <!--<p>真材好料、良心品味</p>-->
+        <!--</dd>-->
+        <!--<dd>-->
+        <!--<h4>全麦面包    了解详情>></h4>-->
+        <!--<p>真材好料、良心品味</p>-->
+        <!--</dd>-->
+        <!--<dd>-->
+        <!--<a>添加更多</a>-->
+        <!--</dd>-->
+        <!--</dl>-->
+    </iframe>
+    <!--精品推荐-->
+</div>
+<!--banner部分结束-->
+<!--精品推荐部分开始-->
+<!--<div class="recom-products container">-->
+<!--<div class="recom-hd">-->
+<!--<h4>精品推荐</h4>-->
+<!--<a href="#">查看全部</a>-->
+<!--</div>-->
+
+<!--</div>-->
+<!--&lt;!&ndash;精品推荐部分结束&ndash;&gt;-->
+<!--&lt;!&ndash;轮播部分开始&ndash;&gt;-->
+<!--<div class="slider">-->
+<!--<img src="images/title1.png" alt="">-->
+<!--<a href="#" class="arrow-l"><img src="images/arrow-l.png"></a>-->
+<!--<a href="#" class="arrow-r"><img src="images/arrow-r.png"></a>-->
+<!--<ul class="circle">-->
+<!--<li class="current"></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--&lt;!&ndash;轮播部分结束&ndash;&gt;-->
+<!--&lt;!&ndash;左青龙右白虎&ndash;&gt;-->
+
+<!--<div class="ad_l">扫二维码快速登录</div>-->
+<!--首页尾部，二维码……-->
+</body>
+</html>

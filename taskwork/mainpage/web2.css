@@ -1,0 +1,358 @@
+/*样式*/
+/*css初始化*/
+body{
+    /*height:3000px;*/
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+li{
+    background-color: #a87f62;
+}
+.clearfix:before{
+    display:table;
+    content:"";
+}
+.clearfix:after{
+    clear:both;
+}
+.clearfix{
+    *zoom:1;
+}
+/*去掉所有可能浮动*/
+a{
+   cursor: pointer;
+    color: #876b2e;
+    text-decoration: none;
+}
+input{
+    border:0;
+    box-sizing: border-box;
+    /*css3盒子模型border和padding都包含到width中去*/
+}
+.container{
+    width:960px;
+    margin:0 auto;
+}
+/*css初始化结束*/
+iframe{
+    /*height:80px;*/
+    width: 100%;
+    /*background-color: pink;*/
+    overflow:hidden;
+}
+nav{
+    width:100%;  /*宽度*/
+    height:80px;
+    background-color: #f2c2aae3;
+    margin:0px auto;
+    position: fixed;
+
+}
+.logo{
+    float:left;
+}
+.navbar{
+    float:left;
+    height:80px;
+    line-height: 80px;/*这个行高给父亲，行高会继承*/
+    margin-left: 55px;
+}
+.navbar li{
+    float:left;  /*让首页。。。一行显示*/
+}
+.navbar li a{
+    padding: 0px 25px;/*上下0 左右8像素*/
+    display:block;
+    height:80px;
+    font-size:25px;
+}
+.navbar li a:hover{
+    cursor: pointer;
+    background-color:  #ffffff;
+}
+/*搜索框开始部分*/
+.search{
+    width:410px;
+    margin-top: 21px;
+    height:38px;
+    line-height:38px;
+    border:1px solid #876b2e;
+    float:right;
+}
+.search input[type=text]{
+    width:360px;
+    height:38px;
+    line-height:38px;
+    padding-left:20px;
+    float:right;
+}
+.search input[type=submit]{
+    width:50px;
+    height:38px;
+    float:right;
+    background: #876b2e url("images/search7.png")0 0  no-repeat;
+}
+.lunbo{
+    height: 100%;
+}
+/*搜索框结束部分*/
+/*个人中心部分开始*/
+.personal{
+    float:right;
+    height:80px;
+    line-height: 80px;
+    margin:0 15px 0 35px;
+    font-size: 16px;
+}
+.personal{
+    margin: 0 15px;
+}
+/*个人中心部分结束*/
+/*banner start*/
+.banner{
+    height:420px;
+    background-color:antiquewhite;
+    padding: 10px;
+    height: 90%;
+    float: left;
+    width: 100%;
+}
+.banner-in {
+    background-color: #fdfbf0;
+    opacity: 80;
+    float: left;
+    /*height: 100%;*/
+    width: 65%;
+    /*height:420px;*/
+    /*background: url("images/QQ截图20180a816134023.png")0 0 no-repeat;*/
+}
+/*.slidebar{*/
+    /*height:420px;*/
+    /*width: 190px;*/
+    /*background: rgba(0,0,0,0.3);!*盒子北京半透明*!*/
+    /*float:left;*/
+/*}*/
+.slidebar li a{
+    color:#ffffff;
+    font-size:20px;
+    padding:0 20px;
+    /*a是行内元素没有大小需要转换*/
+    display: block;
+    height:53px;
+    line-height: 53px;
+}
+li{
+    overflow:auto;
+    height:70px;
+}
+.slidebar{
+    height: 100%;
+    width: 13%;
+    float: left;
+    margin-left: 10%;
+    padding-top: 4%;
+}
+
+
+ li a:hover{
+     cursor: pointer;
+    color:#eadac1
+}
+.slidebar a span{
+    float:right;
+    font-family: Arial;
+}
+.timetable{
+    float:right;
+    width: 230px;
+    height: 350px;
+    background-color:  #fdfbe2;
+    margin-top: 40px;
+}
+.timetable dt{
+    height: 50px;
+    line-height: 50px;
+    background-color: #fbd391;
+    text-align: center;/*文字水品居中*/
+    color: #8d3f1b;
+    font-size: 20px;
+    font-weight:700;/*文字加粗*/
+    letter-spacing:2px;
+    margin-bottom:5px;
+}
+.timetable dd{
+    width: 193px;
+    height: 60px;
+    /*background-color: purple;*/
+    margin:0 auto;
+    border-bottom: 1px solid #ccc;
+    padding-top: 12px;
+}
+.timetable dd h4{
+    font-size:19px;
+    font-weight: normal;
+    color:#2d0506;
+}
+.timetable dd:last-child{
+    /*对最后一个元素进行修改*/
+    border:0px;
+}
+.timetable dd p{
+    color:#a17447;
+    font-size:14px;
+}
+.timetable dd a{
+    height:40px;
+    border:1px solid  #876b2e;
+    display:block;
+    text-align: center;
+    line-height: 40px;
+    color:#876b2e;
+    font-weight:700;
+    font-size:21px;
+}
+.timetable dd a:hover{
+    background-color: #876b2e;
+    color:#fbd391;
+}
+/*banner end*/
+.recommend{
+    height:60px;
+    line-height: 60px;
+    background-color:#fdfbf0;
+    margin-top: 5px;
+    box-shadow:0 2px 2px rgba(0,0,0,0.2) ;
+    /*盒子阴影 水平位置 垂直位置 模糊距离 影子颜色*/
+}
+.recommend a{
+    padding: 0 30px;
+    border-right:1px solid #ccc;
+    font-size: 20px;
+}
+.recommend a:hover{
+    color:#fbd391;
+}
+.recommend a:first-child{
+    color:#876b2e;
+    font-size:22px;
+    font-weight: 800;
+}
+.recommend a:last-child{
+    color:#876b2e;
+    border:0;
+    float:right;
+    font-size: 18px;
+}
+.recom-products{
+    margin-top: 85px;
+    margin-bottom:0px;
+    /*background-color:#fdfbf0;*/
+}
+.recom-hd{
+    height:45px;
+    /*background-color:#fdfbf0*/
+}
+.recom-hd h4{
+    float:left;
+    color:#876b2e;
+    font-size: 20px;
+    line-height: 45px;
+    margin-left:30px;
+}
+.recom-hd a{
+    float:right;
+    margin-top:10px;
+    margin-right:30px;
+    font-size: 16px;
+    color:#5f2a00
+}
+.recom-hd a:hover{
+   background:  #fbd391;
+}
+.recom-bd ul li{
+    width:228px;
+    height:278px;
+    background-color: pink;
+    overflow:hidden;
+}
+ul{
+    padding-top: 10px;
+}
+.slider{
+    width:960px;
+    height:420px;
+    margin:0px auto;
+    position:relative;
+}
+.arrow-l,
+.arrow-r{
+    position: absolute;
+    width:48px;
+    height:48px;
+    display:block;
+    top:50%;
+    margin-top:-24px;
+}
+.arrow-l{
+    left:0;
+}
+.arrow-r{
+    right:0;
+}
+.circle{
+    width:65px;
+    height:14px;
+    background: rgba(255,255,255,0.1);
+    position:absolute;
+    bottom:15px;
+    left:50%;
+    margin-left: -32px;
+    border-radius: 6px;
+    padding-left: 4px;
+}
+.circle li{
+    width:9px;
+    height:9px;
+    background-color: #ccc;
+    float:left;
+    margin:3px;
+    border-radius: 50%;
+}
+.circle .current{/*权重问题*/
+    background-color: #75c3e7;
+}
+.ad_r,
+.ad_l{
+    position:fixed;
+}
+.ad_r {
+    left: 0px;
+    top: 80px;
+}
+/*}*/
+/*.ad_l{*/
+/*top:120px;*/
+/*right:0px;*/
+/*width:100px;*/
+/*height:100px;*/
+/*border:1px solid #5f2a00;*/
+/*background: url("images/erweima.png")0 0 no-repeat;*/
+/*text-align: center;*/
+/*line-height: 100px;*/
+/*position: relative;*/
+/*}*/
+/*.ad_l img{*/
+/*position: absolute;*/
+/*right: 100px;*/
+/*top:0;*/
+/*display: none;!*隐藏二维码*!*/
+/*}*/
+/*ad_l:hover img!*鼠标经过div时候，img会显示出来*!*/
+/*{*/
+/*display:block;*/
+/*}*/

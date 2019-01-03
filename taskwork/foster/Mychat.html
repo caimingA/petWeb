@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #content{
+            height: 430px;
+            width: 400px;
+            background-color: antiquewhite;
+            border-width: 2px;
+            border-style:  none none solid none;
+        }
+        #box{
+            border: solid  black;
+            border-radius: 5px;
+            border-width: 2px;
+            margin: 0 auto;
+            width: 400px;
+            height: 500px;
+        }
+        #edit{
+            position: absolute;
+            top:440px;
+            /*left:450px;*/
+            padding: 10px;
+        }
+        #Img{
+            width:70px;
+            height: 30px;
+            /*margin-left: -30px;*/
+
+        }
+        #btn {
+            width: 45px;
+            height: 30px;
+            border-radius: 5px;
+            font-family: 微软雅黑;
+            font-size: 8px;
+            color: white;
+            background-color: #D9B38C;
+            float: right;
+            margin-left: 20px;
+
+        }
+        #txt{
+            margin-left: 30px;
+            font-size: 15px;
+            border-radius: 2px;
+            border:1px solid #ccc;
+            width: 200px;
+            height: 20px;
+
+        }
+
+
+        .showTxt{
+            max-width: 150px;
+            background: #008000a8;
+            border:0;
+            font-size: 15px;
+            color: white;
+            border-radius: 2px;
+            padding:5px ;
+            float: right;
+            list-style: none;
+            word-break: break-all;/*允许在单词内换行*/
+            text-align: right;
+            margin: 5px 10px 0 0;
+            clear: left;
+
+        }
+        .showImg{
+            width:26px;
+            height: 26px;
+            border-radius: 13px;
+            float: right;
+            clear: right;
+            margin-top: 5px;
+            margin-right: 3px;
+
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<div id="box">
+
+    <div id="content">
+        <div id="nav" style="width: 100px ;height:20px;background-color: #cccccc ;border-radius: 5px">格兰芬多</div>
+        <ul id="save"></ul>
+    </div>
+
+    <p id="edit">
+        <img src="css/image/chat_logo.png" id="Img" style="float:left">
+        <input type="text" name="" id="txt" style="float:left;height: 32px">
+        <input type="button" name="" value="发送" id="btn">
+    </p>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script >
+    //发送事件
+    var oBtn=document.getElementById('btn');
+    window.onload = function () {
+        $(document).keydown(function(event){
+            if(event.keyCode == 13){
+                // 　　　　　alert('你按下了Enter');
+                addCon();
+            }
+        })
+    }
+    //发送事件
+    var oBtn=document.getElementById('btn');
+    oBtn.onclick= function(){
+        console.log("点击事件@");
+        addCon();
+    }
+
+    //获取元素
+
+    var oTxt=document.getElementById('txt');
+    var oSave=document.getElementById('save');
+    var oImg=document.getElementById('Img');
+
+
+
+    function addCon(){
+        //定义需要添加的元素
+        var newLi=document.createElement("li");
+        var newImg=document.createElement("img");
+        //添加对话框
+        newLi.innerHTML = oTxt.value;
+        newLi.className = 'showTxt';
+        newImg.src="css/image/dog.png";
+        newImg.className = 'showImg';
+        oSave.appendChild(newImg);
+        oSave.appendChild(newLi);
+        oTxt.value = '';
+
+
+
+
+
+    }
+</script>
+</body>
+</html>

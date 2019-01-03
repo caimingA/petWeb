@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            list-style: none;
+        }
+        .clearfix:before{
+            display:table;
+            content:"";
+        }
+        .clearfix:after{
+            clear:both;
+        }
+        .clearfix{
+            *zoom:1;
+        }
+        /*去掉所有可能浮动*/
+        a{
+            color: #876b2e;
+            text-decoration: none;
+        }
+        input{
+            border:0;
+            box-sizing: border-box;
+            /*css3盒子模型border和padding都包含到width中去*/
+        }
+        .container{
+            width:960px;
+            margin:0 auto;
+        }
+        /*css初始化结束*/
+        header{
+            height:80px;
+            /*background-color: pink;*/
+            overflow:hidden;
+        }
+        nav{
+            width:100%;  /*宽度*/
+            height:80px;
+            background-color: #eadac1;
+            margin:0px auto;
+            position: fixed;
+
+        }
+        .logo{
+            float:left;
+        }
+        .navbar{
+            float:left;
+            height:80px;
+            line-height: 80px;/*这个行高给父亲，行高会继承*/
+            margin-left: 55px;
+        }
+        .navbar li{
+            float:left;  /*让首页。。。一行显示*/
+        }
+        .navbar li a{
+            padding: 0px 25px;/*上下0 左右8像素*/
+            display:block;
+            height:80px;
+            font-size:25px;
+        }
+        .navbar li a:hover{
+            background-color:  #ffffff;
+        }
+        /*搜索框开始部分*/
+        .search{
+            width:410px;
+            margin-top: 21px;
+            height:38px;
+            line-height:38px;
+            border:1px solid #876b2e;
+            float:right;
+        }
+        .search input[type=text]{
+            width:360px;
+            height:38px;
+            line-height:38px;
+            padding-left:20px;
+            float:right;
+        }
+        .search input[type=submit]{
+            width:50px;
+            height:38px;
+            float:right;
+            background: #876b2e url("images/search7.png")0 0  no-repeat;
+        }
+        /*搜索框结束部分*/
+        /*个人中心部分开始*/
+        .personal{
+            float:right;
+            height:80px;
+            line-height: 80px;
+            margin:0 15px 0 35px;
+            font-size: 16px;
+        }
+        .personal{
+            margin: 0 15px;
+        }
+        /*个人中心部分结束*/
+        img {
+            vertical-align: top;
+        }
+
+        #banner{
+            height: 540px;
+            background-color: #fdfbe2;
+        }
+        #slider {
+            width: 960px;
+            height: 540px;
+            padding: 0px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #top {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #top ul {
+            width: 5760px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #top ul li {
+            width: 960px;
+            height: 540px;
+            float: left;
+        }
+
+        #slider ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #slider ol li {
+            width: 20px;
+            height: 20px;
+            background-color: #ccc;
+            display: inline-block;
+            margin-right: 3px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        #slider ol li.current {
+            background-color: #75c3e7;
+        }
+        .loggin{
+
+        }
+        .button{
+            width:100px;
+            background:#8d3f1b;
+            display:block;
+            margin:0 auto;
+            margin-top:1%;
+            padding:10px;
+            text-align:center;
+            text-decoration:none;
+            color:#fff;
+            cursor:pointer;
+            box-shadow: 0 2px 2px rgba(0,0,0,0.3) ;
+            transition:background .3s;
+            -webkit-transition:background .3s;
+        }
+
+        .button:hover{
+            background:#fbd391;
+            color:#8d3f1b;
+        }
+        .logblock{
+            padding:30px;
+            width:300px;
+            height: 300px;
+            margin:0px auto;
+            margin-top:10px;
+            background-color: whitesmoke;
+            border-radius: 5%;
+            box-shadow: 0 2px 2px rgba(0,0,0,0.2) ;
+
+        }
+        .logblock h1{
+            font-weight: normal;
+            font-size: 40px;
+            text-align: center;
+            font-family: 微软雅黑;
+            letter-spacing:5px;
+        }
+        .logblock p{
+            display:block;
+            height:40px;
+            width: 290px;
+            /*background-color: pink;*/
+            margin:2.5px;
+            font-size: 15px;
+            font-family: 微软雅黑;
+            font-weight: 400;
+            letter-spacing:1px;
+        }
+        .logblock input{
+            height:25px;
+            width: 200px;
+            margin-left: 0px;
+            margin-top: 0px;
+            border: 1px #ccc solid ;
+        }
+        .keeplogin{
+            height:25px;
+            width: 200px;
+            color:#777;
+            margin: 0 auto;
+            font-size: 13px;
+            line-height: 13px;
+        }
+        input#loginkeeping
+        {
+            width:15px;
+            height:15px
+        }
+        .loginbutton input{
+            width:150px;
+            margin:0 auto;
+            margin-left: 73px;
+            height:45px;
+            background:#8d3f1b;
+            color:#fff;
+            cursor:pointer;
+            font-size: 20px;
+            border:transparent ;
+            box-shadow: 0 2px 2px rgba(0,0,0,0.2) ;
+        }
+
+        .loginbutton input:hover{
+            background:#fbd391;
+            color:#8d3f1b;
+        }
+        .change_link{
+            width:240px;
+            height:50px;
+            margin: 0 auto;
+            text-align: right;
+            margin-top: 50px;
+        }
+
+    </style>
+
+</head>
+<body>
+<div id="banner">
+    <div id="slider">
+        <div id="top">
+            <ul id="ul">
+                <li><img src="imgs/pic01.png" alt=""></li>
+                <li><img src="imgs/pic02.png" alt=""></li>
+                <li><img src="imgs/pic03.png" alt=""></li>
+                <li><img src="imgs/pic04.png" alt=""></li>
+                <li><img src="imgs/pic05.png" alt=""></li>
+            </ul>
+        </div>
+        <ol id="ol">
+        </ol>
+    </div>
+    <script src="js/myFunc.js"></script>
+    <script>
+        window.onload = function () {
+            // 1. 获取需要的标签
+            var lis = $("ul").children;
+            var currentIndex = 0, indicatorIndex = 0;
+
+            // 2. 克隆li标签
+            $("ul").appendChild(lis[0].cloneNode(true));
+
+            // 3. 动态创建页码
+            for (var i = 0; i < lis.length - 1; i++) {
+                var li = document.createElement("li");
+                $("ol").appendChild(li);
+            }
+
+            // 4. 第一个选中
+            $("ol").children[0].className = "current";
+
+            // 5.鼠标进入圆点
+            var olLis = $("ol").children;
+            for (var j = 0; j < olLis.length; j++) {
+                (function (j) {
+                    // 5.1 获取单独的li标签
+                    var li = olLis[j];
+
+                    // 5.2 鼠标进入
+                    li.onmouseover = function () {
+                        for (var i = 0; i < olLis.length; i++) {
+                            olLis[i].className = "";
+                        }
+
+                        this.className = "current";
+
+                        // 5.3 动起来
+                        constant($("ul"), -(960 * j), 100);
+                        currentIndex = indicatorIndex = j;
+                    };
+                })(j);
+            }
+
+            // 6.自动轮播
+            var timer = setInterval(autoPlay, 2000);
+
+
+            // 7. 清除和设置定时器
+            $("slider").onmouseover = function () {
+                clearInterval(timer);
+            };
+
+            $("slider").onmouseout = function () {
+                timer = setInterval(autoPlay, 2000);
+            };
+
+
+            function autoPlay() {
+                // 6.1 ul滚起来
+                currentIndex++;
+                if (currentIndex > lis.length - 1) {
+                    $("ul").style.left = 0;
+                    currentIndex = 1;
+                }
+                constant($("ul"), -currentIndex * 960, 100);
+
+                // 6.2 指示器滚起来
+                indicatorIndex++;
+                if (indicatorIndex > olLis.length - 1) {
+                    indicatorIndex = 0;
+                }
+                for (var i = 0; i < olLis.length; i++) {
+                    olLis[i].className = "";
+                }
+
+                olLis[indicatorIndex].className = "current";
+
+            }
+        }
+    </script>
+</div>
+</body>
+</html>
